@@ -1,4 +1,4 @@
-from typing import Union, List, Dict
+from typing import Union, List
 
 from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig
 
@@ -32,10 +32,5 @@ class TestStep2(StepConfig):
     def dependencies(self) -> Union[List[str], None]:
         return None
 
-PIPELINE_CONFIGS: List[PipelineConfig] = [
-    {
-        'name': 'testConfig',
-        'display_name': 'Test Config',
-        'steps': [TestStep(), TestStep2()],
-    },
-]
+
+TEST_PIPELINE = PipelineConfig(name='test', display_name='Test Pipeline', steps=[TestStep(), TestStep2()], parallelize=True)

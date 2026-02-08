@@ -4,7 +4,7 @@ from fastapi import FastAPI
 
 from pipelineFramework import PipelineServer
 from pipelineFramework.server.api import add_common_api_calls
-from pipeline_config import PIPELINE_CONFIGS
+from pipeline_configs import PIPELINE_CONFIGS
 
 logging.basicConfig(level=logging.DEBUG)
 
