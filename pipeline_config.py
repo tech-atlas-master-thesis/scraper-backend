@@ -32,10 +32,10 @@ class TestStep2(StepConfig):
     def dependencies(self) -> Union[List[str], None]:
         return None
 
-PIPELINE_CONFIGS: Dict[str, PipelineConfig] = {
-    'testConfig': {
+PIPELINE_CONFIGS: List[PipelineConfig] = [
+    {
         'name': 'testConfig',
         'display_name': 'Test Config',
         'steps': [TestStep(), TestStep2()],
-    }
-}
+    },
+]
