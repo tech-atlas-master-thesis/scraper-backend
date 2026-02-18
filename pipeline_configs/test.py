@@ -1,11 +1,14 @@
+import asyncio
 from typing import Union, List
 
 from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig
+from pipelineFramework.server.pipeline.status import EventType
 
 
 class TestStep(StepConfig):
     async def run(self):
-        yield
+        yield "Sleep for 1 second", EventType.INFO
+        await asyncio.sleep(1)
         print('This is a test step')
 
     def name(self) -> str:
@@ -20,7 +23,10 @@ class TestStep(StepConfig):
 
 class TestStep2(StepConfig):
     async def run(self):
-        yield
+        yield "Sleep for 1 second", EventType.INFO
+        await asyncio.sleep(1)
+        yield "Test Warning", EventType.WARNING
+        await asyncio.sleep(1)
         print('This is another test step')
 
     def name(self) -> str:
