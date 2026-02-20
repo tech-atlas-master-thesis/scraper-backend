@@ -23,8 +23,8 @@ jobs:
       - name: build the docker image
         id: build-docker-image
         run: |
-          tree
-          cd ..
+          ls -la
+          git submodule update --recursive --remote
           docker build . -f Dockerfile -t $username/$IMAGE_NAME:$IMAGE_TAG
       - name: push the docker image
         id: push-docker-image
