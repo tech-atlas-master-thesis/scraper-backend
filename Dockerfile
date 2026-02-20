@@ -11,8 +11,8 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
-# RUN chown -R nonroot /app
-# USER nonroot
+RUN chown -R nonroot /app
+USER nonroot
 
 EXPOSE 8080
 CMD ["fastapi", "run", "main.py", "--port", "8080"]

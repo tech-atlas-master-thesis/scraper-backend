@@ -24,6 +24,9 @@ jobs:
         id: build-docker-image
         run: |
           ls -la
+          cd pipelineFramework
+          ls -la
+          cd ..
           docker build . -f Dockerfile -t $username/$IMAGE_NAME:$IMAGE_TAG
       - name: push the docker image
         id: push-docker-image
