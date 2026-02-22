@@ -7,8 +7,8 @@ from pipelineFramework.server.pipeline.status import EventType
 
 class TestStep(StepConfig):
     async def run(self):
-        yield "Sleep for 1 second", EventType.INFO
-        await asyncio.sleep(1)
+        yield "Sleep for 5 second", EventType.INFO
+        await asyncio.sleep(5)
         print('This is a test step')
 
     def name(self) -> str:
@@ -23,10 +23,10 @@ class TestStep(StepConfig):
 
 class TestStep2(StepConfig):
     async def run(self):
-        yield "Sleep for 1 second", EventType.INFO
-        await asyncio.sleep(1)
+        yield "Sleep for 15 second", EventType.INFO
+        await asyncio.sleep(15)
         yield "Test Warning", EventType.WARNING
-        await asyncio.sleep(1)
+        await asyncio.sleep(20)
         print('This is another test step')
 
     def name(self) -> str:
