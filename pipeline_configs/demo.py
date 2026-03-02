@@ -1,48 +1,17 @@
 import asyncio
-import requests
 from typing import Union, List
 
 from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig
 from pipelineFramework.server.pipeline.status import EventType
 
+from scrapers.FFG import FFG
 
-class TestStep(StepConfig):
+
+class FFPScraper(StepConfig):
     async def run(self):
-        async with aiohttp.ClientSession() as session:
-            async with session.post("https://projekte.ffg.at/projekt/excel", data={
-                        id:[
-                            "4641758",
-                            "3327761",
-                            "4822637",
-                            "3155850",
-                            "4641746",
-                            "4639662",
-                            "4008071",
-                            "2920229",
-                            "5130677",
-                            "3159953",
-                            "1767647",
-                            "2887881",
-                            "4363500",
-                            "1410447",
-                            "4641713",
-                        ]
-                        advanced_search:	"1"
-                        go:	"1"
-                        q:	"nanotechnologie"
-                        titel:	""
-                        inhalt:	""
-                        projektbeginn:	""
-                        projektende:	""
-                        foerderung:	""
-                        foerdernehmer:	""
-                        status:	""
-                        projects_selected:	"15"
-                        projects_total:	"15"
-                      }) as response:
-                      data = await response.text()
-                      print(data)
-        getFile = await requests.as("https://projekte.ffg.at/projekt/excel")
+        ffg = FFG()
+        async for event in ffg.get_results():
+            yield event
 
     def name(self) -> str:
         return 'get'
@@ -72,4 +41,5 @@ class TestStep2(StepConfig):
         return None
 
 
-DEMO_PIPELINE = PipelineConfig(name='demo', display_name='Demo Pipeline', steps=[TestStep(), TestStep2()], parallelize=True)
+DEMO_PIPELINE = PipelineConfig(name='demo', display_name='Demo Pipeline', steps=[FFPScraper(), TestStep2()],
+                               parallelize=True)
