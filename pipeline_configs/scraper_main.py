@@ -1,9 +1,7 @@
-import asyncio
 from typing import Union, List
 
 from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig
 from pipelineFramework.server.pipeline.status import EventType
-
 from scrapers.FFG import FFG
 
 
@@ -14,32 +12,32 @@ class FFPScraper(StepConfig):
             yield event
 
     def name(self) -> str:
-        return 'get'
+        return 'getDataFFG'
 
     def display_name(self):
-        return 'Test Step'
+        return 'Get Data from FFG'
 
     def dependencies(self) -> Union[List[str], None]:
         return None
 
 
-class TestStep2(StepConfig):
+class DummyStep(StepConfig):
     async def run(self):
-        yield "Sleep for 1 second", EventType.INFO
-        await asyncio.sleep(1)
-        yield "Test Warning", EventType.WARNING
-        await asyncio.sleep(1)
-        print('This is another test step')
+        yield 'Dummy Step executed', EventType.INFO
 
     def name(self) -> str:
-        return 'test2'
+        return 'dummyStep'
 
     def display_name(self):
-        return 'Test Step'
+        return 'Dummy Step'
 
     def dependencies(self) -> Union[List[str], None]:
-        return None
+        return ['getDataFFG']
 
 
-DEMO_PIPELINE = PipelineConfig(name='demo', display_name='Demo Pipeline', steps=[FFPScraper(), TestStep2()],
-                               parallelize=True)
+DEMO_PIPELINE = PipelineConfig(
+    name='scraper_main',
+    display_name='Scraper Pipeline',
+    steps=[FFPScraper(), DummyStep()],
+    parallelize=True
+)

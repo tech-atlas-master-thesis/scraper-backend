@@ -10,10 +10,73 @@ from scrapers.Scraper import Scraper
 
 
 class FFG(Scraper):
-    PAGE_SIZE=100
+    PAGE_SIZE = 100
     EXCEL_REQUEST_URI = "https://projekte.ffg.at/projekt/excel"
     SEARCH_REQUEST_URI = "https://projekte.ffg.at/projekt?advanced_search=1&go=1&q={query}&start={page}"
-    ID_HREF_REGEX = re.compile(r'/projekt/(\d+)')
+    ID_HREF_REGEX = re.compile(r"/projekt/(\d+)")
+
+
+    FOUND_KEYWORD_COLUMN = "found_keyword"
+
+    SCRAPE_TRANSLATE_COLUMNS = {
+        "Projekt-ID": "id",
+        "Kurztitel": "short_title",
+        "Langtitel": "long_title",
+        "Abstract": "abstract",
+        "Programm": "programme",
+        "Ausschreibung": "bidding",
+        "Projektstart": "project_start",
+        "Projektende": "project_end",
+        "Projektstatus": "status",
+        "Keywords": "keywords",
+        "Rolle im Projekt": "role_in_project",
+        "Organisationsname": "organisation_name",
+        "Organisationsart": "organisation_type",
+        "Website": "website",
+        "Staat": "country",
+        "Bundesland": "state",
+        "Stadt": "city",
+        "Adresse (Office)": "address",
+    }
+    SCRAPE_GROUP = {
+        "groupBy": [
+            "id",
+            "short_title",
+            "long_title",
+            "abstract",
+            "programme",
+            "bidding",
+            "project_start",
+            "project_end",
+            "status",
+            "keywords",
+        ],
+        "aggregate": {
+            "organisations": list,
+            "abstract": "first",
+        },
+        "combine": [
+            "role_in_project",
+            "organisation_name",
+            "organisation_type",
+            "website",
+            "country",
+            "state",
+            "city",
+            "address"
+        ],
+        "combinedColumn": "organisations"
+    }
+
+    AGGREGATE_GROUP = {
+        "groupBy": SCRAPE_GROUP["groupBy"],
+        "aggregate": {
+            FOUND_KEYWORD_COLUMN: list,
+            **{key: "first" for key,_ in SCRAPE_GROUP["aggregate"].items()},
+        }
+    }
+
+
 
     async def get_results_for_keyword(self, keyword: str) -> pd.DataFrame:
         ids = await self.get_all_ids_for_keyword(keyword)
@@ -25,7 +88,21 @@ class FFG(Scraper):
             }) as response:
                 excel_file = BytesIO(await response.content.read())
                 csv = pd.read_excel(excel_file, engine="calamine", skiprows=4)
-        return csv
+        transformed = self._group_scrape_dataframe(csv)
+        transformed[self.FOUND_KEYWORD_COLUMN] = keyword.lower()
+        return transformed
+
+    def _group_scrape_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
+        dataframe.rename(columns=self.SCRAPE_TRANSLATE_COLUMNS, inplace=True)
+        dataframe[self.SCRAPE_GROUP["combinedColumn"]] = dataframe[self.SCRAPE_GROUP["combine"]].to_dict("records")
+        return (dataframe
+                .groupby(self.SCRAPE_GROUP["groupBy"], as_index=False)
+                .agg(self.SCRAPE_GROUP["aggregate"]))
+
+    async def aggregate_dataframes(self, dataframes: List[pd.DataFrame]) -> pd.DataFrame:
+        return (pd.concat(dataframes)
+                .groupby(self.AGGREGATE_GROUP["groupBy"], as_index=False)
+                .agg(self.AGGREGATE_GROUP["aggregate"]))
 
     async def get_all_ids_for_keyword(self, keyword: str) -> List[str]:
         page = 0
@@ -33,7 +110,7 @@ class FFG(Scraper):
         while True:
             async with aiohttp.ClientSession() as session:
                 async with session.get(self.SEARCH_REQUEST_URI.format(query=keyword, page=page), ssl=False) as response:
-                    soup = BeautifulSoup(await response.text(), 'html.parser')
+                    soup = BeautifulSoup(await response.text(), "html.parser")
                     links = soup.find(id="searchresults").find_all("a", href=self.ID_HREF_REGEX)
                     if not links:
                         return ids

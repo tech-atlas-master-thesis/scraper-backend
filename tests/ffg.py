@@ -8,7 +8,6 @@ async def run():
     events = []
     async for result in ffg.get_results():
         events.append(result)
-    print(events)
 
 
 def main():
