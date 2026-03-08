@@ -6,7 +6,7 @@ import aiohttp
 import pandas as pd
 from bs4 import BeautifulSoup
 
-from pipelineFramework.server.api import UserStepConfig
+from pipelineFramework import UserStepConfig
 from scrapers.Scraper import Scraper
 
 

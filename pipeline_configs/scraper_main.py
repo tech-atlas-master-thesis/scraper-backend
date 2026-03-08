@@ -1,8 +1,6 @@
 from typing import Union, List
 
-from pipelineFramework.server.api import LocalisationString, UserStepConfig
-from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig, StepUserConfig
-from pipelineFramework.server.pipeline.status import EventType
+from pipelineFramework import EventType, LocalisationString, UserStepConfig, PipelineConfig, StepConfig, StepUserConfig
 from scrapers.FFG import FFG
 
 

@@ -3,7 +3,7 @@ from typing import List
 
 import pandas as pd
 
-from pipelineFramework.server.pipeline.status import EventType
+from pipelineFramework import EventType
 
 
 class Scraper(metaclass=ABCMeta):

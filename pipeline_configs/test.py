@@ -1,9 +1,7 @@
 import asyncio
 from typing import Union, List
 
-from pipelineFramework.server.api import LocalisationString
-from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig
-from pipelineFramework.server.pipeline.status import EventType
+from pipelineFramework import LocalisationString, PipelineConfig, StepConfig, EventType
 
 
 class TestStep(StepConfig):
@@ -40,4 +38,5 @@ class TestStep2(StepConfig):
         return None
 
 
-TEST_PIPELINE = PipelineConfig(name='test', display_name='Test Pipeline', steps=[TestStep(), TestStep2()], parallelize=True)
+TEST_PIPELINE = PipelineConfig(name='test', display_name='Test Pipeline', steps=[TestStep(), TestStep2()],
+                               parallelize=True)
