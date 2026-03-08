@@ -14,3 +14,14 @@ GET http://localhost:8050/api/scraper/config/pipeline-types/scraper_main
 Accept: application/json
 
 ###
+
+GET http://localhost:8050/api/scraper/pipelines
+Accept: application/json
+
+###
+
+POST http://localhost:8050/api/scraper/pipelines
+
+{
+    "name": "scraper_main"
+}
