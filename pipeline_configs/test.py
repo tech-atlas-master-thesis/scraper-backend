@@ -1,6 +1,7 @@
 import asyncio
 from typing import Union, List
 
+from pipelineFramework.server.api import LocalisationString
 from pipelineFramework.server.pipeline.config import PipelineConfig, StepConfig
 from pipelineFramework.server.pipeline.status import EventType
 
@@ -15,7 +16,7 @@ class TestStep(StepConfig):
         return 'test'
 
     def display_name(self):
-        return 'Test Step'
+        return LocalisationString("Step 1", "Schritt 1")
 
     def dependencies(self) -> Union[List[str], None]:
         return None
@@ -33,7 +34,7 @@ class TestStep2(StepConfig):
         return 'test2'
 
     def display_name(self):
-        return 'Test Step'
+        return LocalisationString("Step 2", "Schritt 2")
 
     def dependencies(self) -> Union[List[str], None]:
         return None

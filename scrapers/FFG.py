@@ -6,6 +6,7 @@ import aiohttp
 import pandas as pd
 from bs4 import BeautifulSoup
 
+from pipelineFramework.server.api import UserStepConfig
 from scrapers.Scraper import Scraper
 
 
@@ -76,7 +77,17 @@ class FFG(Scraper):
         }
     }
 
-
+    def __init__(self, user_config: UserStepConfig):
+        super().__init__()
+        self.EXCEL_REQUEST_URI = user_config.get("EXCEL_REQUEST_URI")
+        self.SEARCH_REQUEST_URI = user_config.get("SEARCH_REQUEST_URI")
+        self.ID_HREF_REGEX = user_config.get("ID_HREF_REGEX")
+        self.FOUND_KEYWORD_COLUMN = user_config.get("FOUND_KEYWORD_COLUMN")
+        self.COLUMN_TRANSLATIONS = user_config.get("COLUMN_TRANSLATIONS")
+        self.PROJECT_COLUMNS = user_config.get("PROJECT_COLUMNS")
+        self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE = user_config.get("PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE")
+        self.ORGANISATION_COLUMNS = user_config.get("ORGANISATION_COLUMNS")
+        self.ORGANISATIONS_COLUMN_NAME = user_config.get("ORGANISATIONS_COLUMN_NAME")
 
     async def get_results_for_keyword(self, keyword: str) -> pd.DataFrame:
         ids = await self.get_all_ids_for_keyword(keyword)
