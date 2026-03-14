@@ -1,30 +1,40 @@
-from typing import Union, List
+from typing import Union, List, Optional
 
-from pipelineFramework import EventType, LocalisationString, UserStepConfig, PipelineConfig, StepConfig, StepUserConfig
+from pipelineFramework import EventType, LocalisationString, UserStepConfig, PipelineConfig, StepConfig, StepUserConfig, \
+    LocalisationStringType
 from scrapers.FFG import FFG
 
 
 class FFPScraper(StepConfig):
-    async def run(self, user_config: UserStepConfig):
+    async def run(self, user_config: Optional[UserStepConfig]):
         ffg = FFG(user_config)
         async for event in ffg.get_results():
             yield event
 
     def user_config(self) -> List[StepUserConfig]:
         return [
+            StepUserConfig("KEYWORDS", LocalisationString("Keywords", "Keywords"),
+                           LocalisationString("Keywords to use to search the database",
+                                              "Zu verwendende Keywords um die Datenbank zu durchsuchen"),
+                           StepUserConfig.StepUserConfigType.LIST, ["Nano", "Artificial Intelligence", "Vaccine"]),
             StepUserConfig("EXCEL_REQUEST_URI",
                            LocalisationString("URI to request Excel file", "URI um Excel File zu beantragen"),
+                           None,
                            StepUserConfig.StepUserConfigType.STRING, "https://projekte.ffg.at/projekt/excel"),
             StepUserConfig("SEARCH_REQUEST_URI", LocalisationString("Project Search Request URI", "Projektsuche URI"),
+                           None,
                            StepUserConfig.StepUserConfigType.STRING,
                            "https://projekte.ffg.at/projekt?advanced_search=1&go=1&q={query}&start={page}"),
             StepUserConfig("ID_HREF_REGEX",
                            LocalisationString("RegExp to find href with ID", "RegExp um href mit ID zu finden"),
+                           None,
                            StepUserConfig.StepUserConfigType.STRING, "/projekt/(\d+)"),
             StepUserConfig("FOUND_KEYWORD_COLUMN",
                            LocalisationString("Column for used keyword", "Spalte für benuztes keyword"),
+                           None,
                            StepUserConfig.StepUserConfigType.STRING, "found_keyword"),
             StepUserConfig("COLUMN_TRANSLATIONS", LocalisationString("Columns renaming", "Spalten Umbenennung"),
+                           None,
                            StepUserConfig.StepUserConfigType.MAPPING, {
                                "Projekt-ID": "id",
                                "Kurztitel": "short_title",
@@ -47,6 +57,7 @@ class FFPScraper(StepConfig):
                            }),
             StepUserConfig("PROJECT_COLUMNS",
                            LocalisationString("Columns containing project data", "Spalten mit Projektdaten"),
+                           None,
                            StepUserConfig.StepUserConfigType.LIST, ["id",
                                                                     "short_title",
                                                                     "long_title",
@@ -60,9 +71,11 @@ class FFPScraper(StepConfig):
             StepUserConfig("PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE",
                            LocalisationString("Columns containing project data only once",
                                               "Spalten mit Prjektdaten nur einmal vorhanden"),
+                           None,
                            StepUserConfig.StepUserConfigType.LIST, ["abstract"]),
             StepUserConfig("ORGANISATION_COLUMNS",
                            LocalisationString("Columns with organisation data", "Zeilen mit Organisationsdaten"),
+                           None,
                            StepUserConfig.StepUserConfigType.LIST,
                            ["role_in_project",
                             "organisation_name",
@@ -74,16 +87,17 @@ class FFPScraper(StepConfig):
                             "address"]),
             StepUserConfig("ORGANISATIONS_COLUMN_NAME",
                            LocalisationString("Organisations column", "Organistionsspalte"),
+                           None,
                            StepUserConfig.StepUserConfigType.STRING, "organisations"),
         ]
 
     def name(self) -> str:
         return 'getDataFFG'
 
-    def display_name(self) -> str:
+    def display_name(self) -> LocalisationStringType:
         return LocalisationString("Get Data from FFG", "Daten von FFG laden")
 
-    def description(self) -> str:
+    def description(self) -> LocalisationStringType:
         return LocalisationString("Desc", "Desc")
 
     def dependencies(self) -> Union[List[str], None]:
@@ -91,13 +105,13 @@ class FFPScraper(StepConfig):
 
 
 class DummyStep(StepConfig):
-    async def run(self, _):
+    async def run(self, *_):
         yield 'Dummy Step executed', EventType.INFO
 
     def name(self) -> str:
         return 'dummyStep'
 
-    def display_name(self):
+    def display_name(self) -> LocalisationStringType:
         return LocalisationString("Dummy Step", "Dummy Step")
 
     def dependencies(self) -> Union[List[str], None]:
