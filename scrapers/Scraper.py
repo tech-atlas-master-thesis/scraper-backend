@@ -15,7 +15,7 @@ class Scraper(metaclass=ABCMeta):
         raise NotImplementedError
 
     async def get_results(self):
-        keywords = ['Nano', 'Artificial Intelligence', 'vaccine']
+        keywords = ["Nano", "Artificial Intelligence", "vaccine"]
         dfs = []
         for keyword in keywords:
             csv = await self.get_results_for_keyword(keyword)

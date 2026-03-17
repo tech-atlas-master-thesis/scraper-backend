@@ -31,28 +31,32 @@ class FFG(Scraper):
             "groupBy": self.PROJECT_COLUMNS,
             "aggregate": {
                 self.ORGANISATIONS_COLUMN_NAME: list,
-                **dict.fromkeys(self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE, "first")
+                **dict.fromkeys(self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE, "first"),
             },
             "combine": self.ORGANISATION_COLUMNS,
-            "combinedColumn": self.ORGANISATIONS_COLUMN_NAME
+            "combinedColumn": self.ORGANISATIONS_COLUMN_NAME,
         }
 
         self.AGGREGATE_GROUP = {
             "groupBy": self.SCRAPE_GROUP["groupBy"],
             "aggregate": {
                 self.FOUND_KEYWORD_COLUMN: list,
-                **dict.fromkeys(self.SCRAPE_GROUP["aggregate"].keys(), "first")
-            }
+                **dict.fromkeys(self.SCRAPE_GROUP["aggregate"].keys(), "first"),
+            },
         }
 
     async def get_results_for_keyword(self, keyword: str) -> pd.DataFrame:
         ids = await self.get_all_ids_for_keyword(keyword)
         async with aiohttp.ClientSession() as session:
-            async with session.post(self.EXCEL_REQUEST_URI, ssl=False, data={
-                "id[]": ids,
-                "projects_selected": str(len(ids)),
-                "projects_total": str(len(ids)),
-            }) as response:
+            async with session.post(
+                self.EXCEL_REQUEST_URI,
+                ssl=False,
+                data={
+                    "id[]": ids,
+                    "projects_selected": str(len(ids)),
+                    "projects_total": str(len(ids)),
+                },
+            ) as response:
                 excel_file = BytesIO(await response.content.read())
                 csv = pd.read_excel(excel_file, engine="calamine", skiprows=4)
         transformed = self._group_scrape_dataframe(csv)
@@ -62,14 +66,14 @@ class FFG(Scraper):
     def _group_scrape_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         dataframe.rename(columns=self.COLUMN_TRANSLATIONS, inplace=True)
         dataframe[self.SCRAPE_GROUP["combinedColumn"]] = dataframe[self.SCRAPE_GROUP["combine"]].to_dict("records")
-        return (dataframe
-                .groupby(self.SCRAPE_GROUP["groupBy"], as_index=False)
-                .agg(self.SCRAPE_GROUP["aggregate"]))
+        return dataframe.groupby(self.SCRAPE_GROUP["groupBy"], as_index=False).agg(self.SCRAPE_GROUP["aggregate"])
 
     async def aggregate_dataframes(self, dataframes: List[pd.DataFrame]) -> pd.DataFrame:
-        return (pd.concat(dataframes)
-                .groupby(self.AGGREGATE_GROUP["groupBy"], as_index=False)
-                .agg(self.AGGREGATE_GROUP["aggregate"]))
+        return (
+            pd.concat(dataframes)
+            .groupby(self.AGGREGATE_GROUP["groupBy"], as_index=False)
+            .agg(self.AGGREGATE_GROUP["aggregate"])
+        )
 
     async def get_all_ids_for_keyword(self, keyword: str) -> List[str]:
         page = 0

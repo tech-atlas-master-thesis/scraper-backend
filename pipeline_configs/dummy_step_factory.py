@@ -6,7 +6,7 @@ from pipelineFramework import StepConfig, EventType, LocalisationStringType, Loc
 def get_dummy_step(name: str, display_name: LocalisationStringType):
     class DummyStep(StepConfig):
         async def run(self, *_):
-            yield 'Dummy Step executed', EventType.INFO
+            yield "Dummy Step executed", EventType.INFO
 
         def name(self) -> str:
             return name
