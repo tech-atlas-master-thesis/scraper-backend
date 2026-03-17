@@ -12,83 +12,38 @@ from scrapers.Scraper import Scraper
 
 class FFG(Scraper):
     PAGE_SIZE = 100
-    EXCEL_REQUEST_URI = "https://projekte.ffg.at/projekt/excel"
-    SEARCH_REQUEST_URI = "https://projekte.ffg.at/projekt?advanced_search=1&go=1&q={query}&start={page}"
-    ID_HREF_REGEX = re.compile(r"/projekt/(\d+)")
-
-
-    FOUND_KEYWORD_COLUMN = "found_keyword"
-
-    SCRAPE_TRANSLATE_COLUMNS = {
-        "Projekt-ID": "id",
-        "Kurztitel": "short_title",
-        "Langtitel": "long_title",
-        "Abstract": "abstract",
-        "Programm": "programme",
-        "Ausschreibung": "bidding",
-        "Projektstart": "project_start",
-        "Projektende": "project_end",
-        "Projektstatus": "status",
-        "Keywords": "keywords",
-        "Rolle im Projekt": "role_in_project",
-        "Organisationsname": "organisation_name",
-        "Organisationsart": "organisation_type",
-        "Website": "website",
-        "Staat": "country",
-        "Bundesland": "state",
-        "Stadt": "city",
-        "Adresse (Office)": "address",
-    }
-    SCRAPE_GROUP = {
-        "groupBy": [
-            "id",
-            "short_title",
-            "long_title",
-            "abstract",
-            "programme",
-            "bidding",
-            "project_start",
-            "project_end",
-            "status",
-            "keywords",
-        ],
-        "aggregate": {
-            "organisations": list,
-            "abstract": "first",
-        },
-        "combine": [
-            "role_in_project",
-            "organisation_name",
-            "organisation_type",
-            "website",
-            "country",
-            "state",
-            "city",
-            "address"
-        ],
-        "combinedColumn": "organisations"
-    }
-
-    AGGREGATE_GROUP = {
-        "groupBy": SCRAPE_GROUP["groupBy"],
-        "aggregate": {
-            FOUND_KEYWORD_COLUMN: list,
-            **{key: "first" for key,_ in SCRAPE_GROUP["aggregate"].items()},
-        }
-    }
 
     def __init__(self, user_config: UserStepConfig):
         super().__init__()
-        # TODO: reenable later
-        # self.EXCEL_REQUEST_URI = user_config.get("EXCEL_REQUEST_URI")
-        # self.SEARCH_REQUEST_URI = user_config.get("SEARCH_REQUEST_URI")
-        # self.ID_HREF_REGEX = user_config.get("ID_HREF_REGEX")
-        # self.FOUND_KEYWORD_COLUMN = user_config.get("FOUND_KEYWORD_COLUMN")
-        # self.COLUMN_TRANSLATIONS = user_config.get("COLUMN_TRANSLATIONS")
-        # self.PROJECT_COLUMNS = user_config.get("PROJECT_COLUMNS")
-        # self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE = user_config.get("PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE")
-        # self.ORGANISATION_COLUMNS = user_config.get("ORGANISATION_COLUMNS")
-        # self.ORGANISATIONS_COLUMN_NAME = user_config.get("ORGANISATIONS_COLUMN_NAME")
+
+        self.KEYWORDS = user_config.get("KEYWORDS")
+        self.EXCEL_REQUEST_URI = user_config.get("EXCEL_REQUEST_URI")
+        self.SEARCH_REQUEST_URI = user_config.get("SEARCH_REQUEST_URI")
+        self.ID_HREF_REGEX = re.compile(user_config.get("ID_HREF_REGEX"))
+        self.FOUND_KEYWORD_COLUMN = user_config.get("FOUND_KEYWORD_COLUMN")
+        self.COLUMN_TRANSLATIONS = user_config.get("COLUMN_TRANSLATIONS")
+        self.PROJECT_COLUMNS = user_config.get("PROJECT_COLUMNS")
+        self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE = user_config.get("PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE")
+        self.ORGANISATION_COLUMNS = user_config.get("ORGANISATION_COLUMNS")
+        self.ORGANISATIONS_COLUMN_NAME = user_config.get("ORGANISATIONS_COLUMN_NAME")
+
+        self.SCRAPE_GROUP = {
+            "groupBy": self.PROJECT_COLUMNS,
+            "aggregate": {
+                self.ORGANISATIONS_COLUMN_NAME: list,
+                **dict.fromkeys(self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE, "first")
+            },
+            "combine": self.ORGANISATION_COLUMNS,
+            "combinedColumn": self.ORGANISATIONS_COLUMN_NAME
+        }
+
+        self.AGGREGATE_GROUP = {
+            "groupBy": self.SCRAPE_GROUP["groupBy"],
+            "aggregate": {
+                self.FOUND_KEYWORD_COLUMN: list,
+                **dict.fromkeys(self.SCRAPE_GROUP["aggregate"].keys(), "first")
+            }
+        }
 
     async def get_results_for_keyword(self, keyword: str) -> pd.DataFrame:
         ids = await self.get_all_ids_for_keyword(keyword)
@@ -105,7 +60,7 @@ class FFG(Scraper):
         return transformed
 
     def _group_scrape_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
-        dataframe.rename(columns=self.SCRAPE_TRANSLATE_COLUMNS, inplace=True)
+        dataframe.rename(columns=self.COLUMN_TRANSLATIONS, inplace=True)
         dataframe[self.SCRAPE_GROUP["combinedColumn"]] = dataframe[self.SCRAPE_GROUP["combine"]].to_dict("records")
         return (dataframe
                 .groupby(self.SCRAPE_GROUP["groupBy"], as_index=False)
