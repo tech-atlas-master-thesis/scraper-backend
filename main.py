@@ -1,11 +1,13 @@
 import logging
 
+from dotenv import load_dotenv
 from fastapi import FastAPI
 
 from pipelineFramework import PipelineServer, add_common_api_calls
 from pipeline_configs import PIPELINE_CONFIGS
 
 logging.basicConfig(level=logging.DEBUG)
+load_dotenv()
 
 API_BASE_URL = "/api/scraper"
 
