@@ -3,7 +3,7 @@ from pipeline_configs.FFG_steps.ffg_scraper import FFPScraper
 from pipeline_configs.dummy_step_factory import get_dummy_step
 
 DEMO_PIPELINE = PipelineConfig(
-    name="scraper_main",
+    type="scraper_main",
     display_name=LocalisationString("Scraper Pipeline", "Scraper Pipeline"),
     steps=[
         FFPScraper(),

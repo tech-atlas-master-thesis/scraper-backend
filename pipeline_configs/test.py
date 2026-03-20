@@ -39,5 +39,5 @@ class TestStep2(StepConfig):
 
 
 TEST_PIPELINE = PipelineConfig(
-    name="test", display_name="Test Pipeline", steps=[TestStep(), TestStep2()], parallelize=True
+    type="test", display_name="Test Pipeline", steps=[TestStep(), TestStep2()], parallelize=True
 )
