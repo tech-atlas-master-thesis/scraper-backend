@@ -5,7 +5,7 @@ from scrapers.FFG import FFG
 
 
 class FFPScraper(StepConfig):
-    async def run(self, user_config: Optional[UserStepConfig]):
+    async def run(self, user_config: Optional[UserStepConfig], **_):
         ffg = FFG(user_config)
         async for event in ffg.get_results():
             yield event

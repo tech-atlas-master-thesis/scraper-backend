@@ -5,7 +5,7 @@ from pipelineFramework import LocalisationString, PipelineConfig, StepConfig, Ev
 
 
 class TestStep(StepConfig):
-    async def run(self, *_):
+    async def run(self, **_):
         yield "Sleep for 5 second", EventType.INFO
         await asyncio.sleep(5)
         print("This is a test step")
@@ -21,7 +21,7 @@ class TestStep(StepConfig):
 
 
 class TestStep2(StepConfig):
-    async def run(self, *_):
+    async def run(self, **_):
         yield "Sleep for 15 second", EventType.INFO
         await asyncio.sleep(15)
         yield "Test Warning", EventType.WARNING
