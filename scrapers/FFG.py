@@ -1,3 +1,4 @@
+import json
 import re
 from io import BytesIO
 from typing import List
@@ -30,7 +31,7 @@ class FFG(Scraper):
         self.SCRAPE_GROUP = {
             "groupBy": self.PROJECT_COLUMNS,
             "aggregate": {
-                self.ORGANISATIONS_COLUMN_NAME: list,
+                self.ORGANISATIONS_COLUMN_NAME: lambda x: json.dumps(x.to_list()),
                 **dict.fromkeys(self.PROJECT_COLUMNS_ONLY_ON_FIRST_INSTANCE, "first"),
             },
             "combine": self.ORGANISATION_COLUMNS,
@@ -40,7 +41,7 @@ class FFG(Scraper):
         self.AGGREGATE_GROUP = {
             "groupBy": self.SCRAPE_GROUP["groupBy"],
             "aggregate": {
-                self.FOUND_KEYWORD_COLUMN: list,
+                self.FOUND_KEYWORD_COLUMN: lambda x: json.dumps(x.to_list()),
                 **dict.fromkeys(self.SCRAPE_GROUP["aggregate"].keys(), "first"),
             },
         }
@@ -65,7 +66,9 @@ class FFG(Scraper):
 
     def _group_scrape_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         dataframe.rename(columns=self.COLUMN_TRANSLATIONS, inplace=True)
-        dataframe[self.SCRAPE_GROUP["combinedColumn"]] = dataframe[self.SCRAPE_GROUP["combine"]].to_dict("records")
+        dataframe[self.SCRAPE_GROUP["combinedColumn"]] = pd.Series(
+            dataframe[self.SCRAPE_GROUP["combine"]].to_dict("records")
+        )
         return dataframe.groupby(self.SCRAPE_GROUP["groupBy"], as_index=False).agg(self.SCRAPE_GROUP["aggregate"])
 
     async def aggregate_dataframes(self, dataframes: List[pd.DataFrame]) -> pd.DataFrame:
