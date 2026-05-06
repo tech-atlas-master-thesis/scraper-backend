@@ -217,3 +217,5 @@ __marimo__/
 
 # Custom
 .idea
+tests/logs/
+tests/tmp/

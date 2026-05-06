@@ -84,7 +84,6 @@ class FFPScraper(StepConfig):
                     "externalId",
                     "short",
                     "title",
-                    "abstract",
                     "programme",
                     "bidding",
                     "start",
