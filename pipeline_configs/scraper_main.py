@@ -1,13 +1,17 @@
-from pipelineFramework import LocalisationString, PipelineConfig
+from pipelineFramework import LocalisationString, PipelineConfig, GetConfiguration, get_dummy_step
 from pipeline_configs.FFG_steps.ffg_scraper import FFPScraper
-from pipelineFramework import get_dummy_step
-from pipeline_configs.tech_config import TechConfigStep
 
 DEMO_PIPELINE = PipelineConfig(
     type="scraper_main",
     display_name=LocalisationString("Scraper Pipeline", "Scraper Pipeline"),
     steps=[
-        TechConfigStep(),
+        GetConfiguration(
+            "technologies",
+            "getTechnologyConfiguration",
+            LocalisationString("Get Technology Configuration", "Technologie Konfiguration Laden"),
+            LocalisationString("Desc", "Desc"),
+            LocalisationString("Technology Configuration", "Technologie Konfiguration"),
+        ),
         FFPScraper(),
         get_dummy_step(
             "getDataFWF",

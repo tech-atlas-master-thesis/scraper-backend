@@ -1,7 +1,7 @@
 import json
 import re
 from io import BytesIO
-from typing import List
+from typing import List, Dict, Any
 
 import aiohttp
 import pandas as pd
@@ -14,10 +14,11 @@ from scrapers.Scraper import Scraper
 class FFG(Scraper):
     PAGE_SIZE = 100
 
-    def __init__(self, user_config: UserStepConfig):
+    def __init__(self, user_config: UserStepConfig, results: Dict[str, Any]):
         super().__init__()
 
-        self.KEYWORDS = user_config.get("KEYWORDS")
+        self.TECHNOLOGIES = results.get("getTechnologyConfiguration")
+
         self.EXCEL_REQUEST_URI = user_config.get("EXCEL_REQUEST_URI")
         self.SEARCH_REQUEST_URI = user_config.get("SEARCH_REQUEST_URI")
         self.ID_HREF_REGEX = re.compile(user_config.get("ID_HREF_REGEX"))
@@ -46,8 +47,10 @@ class FFG(Scraper):
             },
         }
 
-    async def get_results_for_keyword(self, keyword: str) -> pd.DataFrame:
+    async def get_results_for_keyword(self, keyword: super().Keyword) -> pd.DataFrame | None:
         ids = await self.get_all_ids_for_keyword(keyword)
+        if not ids:
+            return None
         async with aiohttp.ClientSession() as session:
             async with session.post(
                 self.EXCEL_REQUEST_URI,
@@ -61,7 +64,7 @@ class FFG(Scraper):
                 excel_file = BytesIO(await response.content.read())
                 csv = pd.read_excel(excel_file, engine="calamine", skiprows=4)
         transformed = self._group_scrape_dataframe(csv)
-        transformed[self.FOUND_KEYWORD_COLUMN] = keyword.lower()
+        transformed[self.FOUND_KEYWORD_COLUMN] = keyword.name
         return transformed
 
     def _group_scrape_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
@@ -78,20 +81,35 @@ class FFG(Scraper):
             .agg(self.AGGREGATE_GROUP["aggregate"])
         )
 
-    async def get_all_ids_for_keyword(self, keyword: str) -> List[str]:
+    def get_keywords(self) -> List[super().Keyword]:
+        return [self.keyword_from_config(tech) for field in self.TECHNOLOGIES for tech in field.get("technologies")]
+
+    def keyword_from_config(self, config: Dict[str, Any]) -> super().Keyword:
+        name = config.get("label")
+
+        search = config.get("search", [])
+        if name is None:
+            raise KeyError(f"Configuration {config} is invalid")
+        return super().Keyword(name, [f'"{name}"'] + [f'"{s}"' for s in search])
+
+    async def get_all_ids_for_keyword(self, keyword: super().Keyword) -> List[str]:
         page = 0
-        ids: List[str] = []
-        while True:
-            async with aiohttp.ClientSession() as session:
-                async with session.get(self.SEARCH_REQUEST_URI.format(query=keyword, page=page), ssl=False) as response:
-                    soup = BeautifulSoup(await response.text(), "html.parser")
-                    links = soup.find(id="searchresults").find_all("a", href=self.ID_HREF_REGEX)
-                    if not links:
-                        return ids
-                    page += self.PAGE_SIZE
-                    for link in links:
-                        try:
-                            extracted_id = self.ID_HREF_REGEX.search(str(link)).groups()[0]
-                            ids.append(extracted_id)
-                        except Exception as e:
-                            print(e)
+        ids = set()
+        for search in keyword.search:
+            while True:
+                async with aiohttp.ClientSession() as session:
+                    async with session.get(
+                        self.SEARCH_REQUEST_URI.format(query=search, page=page), ssl=False
+                    ) as response:
+                        soup = BeautifulSoup(await response.text(), "html.parser")
+                        links = soup.find(id="searchresults").find_all("a", href=self.ID_HREF_REGEX)
+                        if not links:
+                            break
+                        page += self.PAGE_SIZE
+                        for link in links:
+                            try:
+                                extracted_id = self.ID_HREF_REGEX.search(str(link)).groups()[0]
+                                ids.add(extracted_id)
+                            except Exception as e:
+                                print(e)
+        return list(ids)

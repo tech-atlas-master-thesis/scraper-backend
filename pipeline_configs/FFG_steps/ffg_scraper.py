@@ -1,26 +1,19 @@
-from typing import Optional, List, Union
+from typing import Optional, List, Union, Dict, Any
 
 from pipelineFramework import StepConfig, UserStepConfig, StepUserConfig, LocalisationString, LocalisationStringType
 from scrapers.FFG import FFG
 
 
 class FFPScraper(StepConfig):
-    async def run(self, user_config: Optional[UserStepConfig], **_):
-        ffg = FFG(user_config)
+    async def run(self, user_config: Optional[UserStepConfig], results: Optional[Dict[str, Any]], **_):
+        if user_config is None or results is None:
+            raise FileNotFoundError("User Config or Results not provided")
+        ffg = FFG(user_config, results)
         async for event in ffg.get_results():
             yield event
 
     def user_config(self) -> List[StepUserConfig]:
         return [
-            StepUserConfig(
-                "KEYWORDS",
-                LocalisationString("Keywords", "Keywords"),
-                LocalisationString(
-                    "Keywords to use to search the database", "Zu verwendende Keywords um die Datenbank zu durchsuchen"
-                ),
-                StepUserConfig.StepUserConfigType.LIST,
-                ["Nano", "Artificial Intelligence", "Vaccine"],
-            ),
             StepUserConfig(
                 "EXCEL_REQUEST_URI",
                 LocalisationString("URI to request Excel file", "URI um Excel File zu beantragen"),
@@ -136,4 +129,4 @@ class FFPScraper(StepConfig):
         return LocalisationString("Desc", "Desc")
 
     def dependencies(self) -> Union[List[str], None]:
-        return None
+        return ["getTechnologyConfiguration"]
