@@ -26,7 +26,34 @@ class FFPScraper(StepConfig):
                 LocalisationString("Project Search Request URI", "Projektsuche URI"),
                 None,
                 StepUserConfig.StepUserConfigType.STRING,
-                "https://projekte.ffg.at/projekt?advanced_search=1&go=1&q={query}&start={page}",
+                "https://projekte.ffg.at/projekt?advanced_search=1"
+                "&go=1"
+                "&q={query}"
+                "&start={page}"
+                "&titel={title}"
+                "&projektbeginn={dateFrom}"
+                "&projektende={dateUntil}"
+                "&foerderung={program}"
+                "&foerdernehmer={grant}"
+                "&status={status}",
+            ),
+            StepUserConfig(
+                "SEARCH_DATE_FROM",
+                LocalisationString("Search Project Start Date From", "Suche Projektbeginn von"),
+                None,
+                StepUserConfig.StepUserConfigType.DATE,
+                None,
+                required=False,
+                format="dd.mm.yy",
+            ),
+            StepUserConfig(
+                "SEARCH_DATE_UNTIL",
+                LocalisationString("Search Project End Date Until", "Suche Projektende bis"),
+                None,
+                StepUserConfig.StepUserConfigType.DATE,
+                None,
+                required=False,
+                format="dd.mm.yy",
             ),
             StepUserConfig(
                 "ID_HREF_REGEX",

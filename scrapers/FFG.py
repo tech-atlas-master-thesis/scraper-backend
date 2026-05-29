@@ -1,3 +1,4 @@
+import datetime
 import json
 import re
 from io import BytesIO
@@ -21,6 +22,8 @@ class FFG(Scraper):
 
         self.EXCEL_REQUEST_URI = user_config.get("EXCEL_REQUEST_URI")
         self.SEARCH_REQUEST_URI = user_config.get("SEARCH_REQUEST_URI")
+        self.SEARCH_DATE_FROM = user_config.get("SEARCH_DATE_FROM")
+        self.SEARCH_DATE_UNTIL = user_config.get("SEARCH_DATE_UNTIL")
         self.ID_HREF_REGEX = re.compile(user_config.get("ID_HREF_REGEX"))
         self.FOUND_KEYWORD_COLUMN = user_config.get("FOUND_KEYWORD_COLUMN")
         self.COLUMN_TRANSLATIONS = user_config.get("COLUMN_TRANSLATIONS")
@@ -99,7 +102,17 @@ class FFG(Scraper):
             while True:
                 async with aiohttp.ClientSession() as session:
                     async with session.get(
-                        self.SEARCH_REQUEST_URI.format(query=search, page=page), ssl=False
+                        self.SEARCH_REQUEST_URI.format(
+                            query=search,
+                            page=page,
+                            title="",
+                            dateFrom=self.get_search_datetime_format(self.SEARCH_DATE_FROM),
+                            dateUntil=self.get_search_datetime_format(self.SEARCH_DATE_UNTIL),
+                            program="",
+                            grant="",
+                            status="",
+                        ),
+                        ssl=False,
                     ) as response:
                         soup = BeautifulSoup(await response.text(), "html.parser")
                         links = soup.find(id="searchresults").find_all("a", href=self.ID_HREF_REGEX)
@@ -113,3 +126,9 @@ class FFG(Scraper):
                             except Exception as e:
                                 print(e)
         return list(ids)
+
+    def get_search_datetime_format(self, dt: datetime.datetime | str | None) -> str:
+        if dt is None:
+            return ""
+        dt = datetime.datetime.fromisoformat(dt) if isinstance(dt, str) else dt
+        return dt.strftime("%d.%m.%Y")
