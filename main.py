@@ -16,5 +16,5 @@ API_BASE_URL = "/api/scraper"
 app = FastAPI(
     openapi_url=API_BASE_URL + "/openapi.json", docs_url=API_BASE_URL + "/docs", redoc_url=API_BASE_URL + "/redoc"
 )
-pipeline_server: PipelineServer = PipelineServer()
-add_common_api_calls(app, pipeline_server, PIPELINE_CONFIGS, CONFIG_DEFINITIONS, API_BASE_URL)
+pipeline_server: PipelineServer = PipelineServer(PIPELINE_CONFIGS, CONFIG_DEFINITIONS)
+add_common_api_calls(app, pipeline_server, API_BASE_URL)
