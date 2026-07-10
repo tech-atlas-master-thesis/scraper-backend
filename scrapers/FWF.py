@@ -56,6 +56,7 @@ class FWF(Scraper):
         )
         self.ORGANISATION_INTERNATIONAL_PARTNERS_REGEX = user_config.get("ORGANISATION_INTERNATIONAL_PARTNERS_REGEX")
         self.ORGANISATION_INTERNATIONAL_PARTNERS_IDENTIFIER = "fwf_international_partner"
+        self.OUTPUT_REGEX_WARNINGS = user_config.get("OUTPUT_REGEX_WARNINGS")
 
         self.RELEVANT_COLUMNS = [
             *self.COLUMN_TRANSLATIONS.values(),
@@ -169,7 +170,8 @@ class FWF(Scraper):
     def _get_extract_matches(self, matcher: re.Pattern[str], entry: str) -> Optional[dict]:
         result = matcher.match(entry)
         if not result or not result.groupdict():
-            self.warnings.append(f'"{entry}" is not a valid regex for {matcher.pattern}')
+            if self.OUTPUT_REGEX_WARNINGS:
+                self.warnings.append(f'"{entry}" is not a valid regex for {matcher.pattern}')
             return None
         return result.groupdict()
 

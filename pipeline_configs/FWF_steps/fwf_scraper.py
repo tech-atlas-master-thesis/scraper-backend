@@ -226,6 +226,16 @@ class FWFScraper(StepConfig):
                 StepUserConfig.StepUserConfigType.STRING,
                 "^([A-Za-zŽžÀ-ÿ .\-]+, )(?P<organisationName>[A-Za-zŽžÀ-ÿ0-9 .\-,()]+)( \(https:\/\/ror\.org\/(?P<organisationRor>[a-z0-9]+)\))? - (?P<organisationCountry>[A-Za-zŽžÀ-ÿ: ]+)(, (?P<organisationType>[A-Za-zŽžÀ-ÿ: ]+))?",
             ),
+            StepUserConfig(
+                "OUTPUT_REGEX_WARNINGS",
+                LocalisationString("Regex Warnings", "Regex Warnungen"),
+                LocalisationString(
+                    "Toggle if regex warnings should be output",
+                    "Umschalten, ob Regex-Warnungen ausgegeben werden sollen",
+                ),
+                StepUserConfig.StepUserConfigType.BOOLEAN,
+                True,
+            ),
         ]
 
     def name(self) -> str:
