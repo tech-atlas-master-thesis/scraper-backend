@@ -1,5 +1,6 @@
 from pipelineFramework import LocalisationString, PipelineConfig, GetConfiguration, get_dummy_step
 from pipeline_configs.FFG_steps.ffg_scraper import FFPScraper
+from pipeline_configs.FWF_steps.fwf_scraper import FWFScraper
 
 DEMO_PIPELINE = PipelineConfig(
     type="scraper_main",
@@ -13,10 +14,7 @@ DEMO_PIPELINE = PipelineConfig(
             LocalisationString("Technology Configuration", "Technologie Konfiguration"),
         ),
         FFPScraper(),
-        get_dummy_step(
-            "getDataFWF",
-            LocalisationString("[DUMMY_STEP] Get Data from FWF", "[DUMMY_STEP] Daten von FWF laden"),
-        ),
+        FWFScraper(),
     ],
     parallelize=True,
 )

@@ -2,7 +2,7 @@ import datetime
 import json
 import re
 from io import BytesIO
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 import aiohttp
 import pandas as pd
@@ -19,6 +19,8 @@ class FFG(Scraper):
         super().__init__()
 
         self.TECHNOLOGIES = results.get("getTechnologyConfiguration")
+
+        self.DATA_IDENTIFIER = "FWF"
 
         self.EXCEL_REQUEST_URI = user_config.get("EXCEL_REQUEST_URI")
         self.SEARCH_REQUEST_URI = user_config.get("SEARCH_REQUEST_URI")
@@ -50,10 +52,10 @@ class FFG(Scraper):
             },
         }
 
-    async def get_results_for_keyword(self, keyword: super().Keyword) -> pd.DataFrame | None:
+    async def get_results_for_keyword(self, keyword: super().Keyword) -> Tuple[pd.DataFrame | None, List[str]]:
         ids = await self.get_all_ids_for_keyword(keyword)
         if not ids:
-            return None
+            return None, []
         async with aiohttp.ClientSession() as session:
             async with session.post(
                 self.EXCEL_REQUEST_URI,
@@ -68,7 +70,7 @@ class FFG(Scraper):
                 csv = pd.read_excel(excel_file, engine="calamine", skiprows=4)
         transformed = self._group_scrape_dataframe(csv)
         transformed[self.FOUND_KEYWORD_COLUMN] = keyword.name
-        return transformed
+        return transformed, []
 
     def _group_scrape_dataframe(self, dataframe: pd.DataFrame) -> pd.DataFrame:
         dataframe.rename(columns=self.COLUMN_TRANSLATIONS, inplace=True)
@@ -86,6 +88,9 @@ class FFG(Scraper):
 
     def get_keywords(self) -> List[super().Keyword]:
         return [self.keyword_from_config(tech) for field in self.TECHNOLOGIES for tech in field.get("technologies")]
+
+    def get_data_identifier(self) -> str:
+        return "FFG"
 
     def keyword_from_config(self, config: Dict[str, Any]) -> super().Keyword:
         name = config.get("label")
