@@ -63,6 +63,7 @@ class FWF(Scraper):
             self.ABSTRACT_COLUMN,
             self.KEYWORD_COLUMN,
             self.ORGANIZATION_COLUMN,
+            self.ORGANIZATION_PROJECT_LEADER,
         ]
 
         self.QUERY_REQUIRED_FIELDS = [
@@ -129,29 +130,33 @@ class FWF(Scraper):
         )
 
     def _transform_organisations(self, df: pd.DataFrame) -> pd.Series:
-        return pd.concat(
-            [
-                self._extract_by_regex(
-                    df[self.ORGANISATION_RESEARCH_INSTITUTIONS],
-                    self.ORGANISATION_RESEARCH_INSTITUTIONS_REGEX,
-                    self.ORGANISATION_RESEARCH_INSTITUTIONS_IDENTIFIER,
-                    self.ORGANISATION_RESEARCH_INSTITUTIONS_ADDITIONAL_DATA,
-                ),
-                self._extract_by_regex(
-                    df[self.ORGANISATION_NATIONAL_PARTNERS],
-                    self.ORGANISATION_NATIONAL_PARTNERS_REGEX,
-                    self.ORGANISATION_NATIONAL_PARTNERS_IDENTIFIER,
-                    self.ORGANISATION_NATIONAL_PARTNERS_ADDITIONAL_DATA,
-                ),
-                self._extract_by_regex(
-                    df[self.ORGANISATION_INTERNATIONAL_PARTNERS],
-                    self.ORGANISATION_INTERNATIONAL_PARTNERS_REGEX,
-                    self.ORGANISATION_INTERNATIONAL_PARTNERS_IDENTIFIER,
-                    self.ORGANISATION_INTERNATIONAL_PARTNERS_ADDITIONAL_DATA,
-                ),
-            ],
-            axis=1,
-        ).sum(axis=1)
+        return (
+            pd.concat(
+                [
+                    self._extract_by_regex(
+                        df[self.ORGANISATION_RESEARCH_INSTITUTIONS],
+                        self.ORGANISATION_RESEARCH_INSTITUTIONS_REGEX,
+                        self.ORGANISATION_RESEARCH_INSTITUTIONS_IDENTIFIER,
+                        self.ORGANISATION_RESEARCH_INSTITUTIONS_ADDITIONAL_DATA,
+                    ),
+                    self._extract_by_regex(
+                        df[self.ORGANISATION_NATIONAL_PARTNERS],
+                        self.ORGANISATION_NATIONAL_PARTNERS_REGEX,
+                        self.ORGANISATION_NATIONAL_PARTNERS_IDENTIFIER,
+                        self.ORGANISATION_NATIONAL_PARTNERS_ADDITIONAL_DATA,
+                    ),
+                    self._extract_by_regex(
+                        df[self.ORGANISATION_INTERNATIONAL_PARTNERS],
+                        self.ORGANISATION_INTERNATIONAL_PARTNERS_REGEX,
+                        self.ORGANISATION_INTERNATIONAL_PARTNERS_IDENTIFIER,
+                        self.ORGANISATION_INTERNATIONAL_PARTNERS_ADDITIONAL_DATA,
+                    ),
+                ],
+                axis=1,
+            )
+            .sum(axis=1)
+            .apply(lambda x: json.dumps(x))
+        )
 
     def _extract_by_regex(self, series: pd.Series, regex: str, data_id: str, additional_data: dict) -> pd.Series:
         matcher = re.compile(regex)
