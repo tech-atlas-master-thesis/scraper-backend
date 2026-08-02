@@ -14,7 +14,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Maschinelles Lernen",
                     "description": "Algorithmen, die aus Daten Muster lernen, um Vorhersagen oder Entscheidungen zu treffen, ohne explizit programmiert zu werden.",
-                    "short": "",
+                    "short": "ml",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -32,7 +32,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Deep Learning",
                     "description": "Maschinelles Lernen mit mehrschichtigen neuronalen Netzen zur Modellierung komplexer Muster in großen Datenmengen.",
-                    "short": "",
+                    "short": "deep-learning",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -49,7 +49,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Generative KI",
                     "description": "KI-Systeme, die auf Basis gelernter Muster neue Inhalte wie Text, Bilder, Audio oder Code erzeugen.",
-                    "short": "",
+                    "short": "genai",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -67,7 +67,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Large Language Models",
                     "description": "Große neuronale Sprachmodelle, die auf umfangreichen Textkorpora trainiert werden, um menschliche Sprache zu verstehen und zu erzeugen.",
-                    "short": None,
+                    "short": "llm",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -84,7 +84,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Natural Language Processing",
                     "description": "Verfahren, die Computern das Verstehen, Interpretieren und Erzeugen menschlicher Sprache ermöglichen.",
-                    "short": None,
+                    "short": "nlp",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -95,7 +95,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Computer Vision",
                     "description": "Verfahren, die Maschinen das Interpretieren und Analysieren visueller Informationen aus Bildern und Videos ermöglichen.",
-                    "short": None,
+                    "short": "cv",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -112,7 +112,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Reinforcement Learning",
                     "description": "Lernansatz, bei dem Agenten ihr Verhalten durch Ausprobieren und Interaktion mit einer Umgebung anhand von Belohnungssignalen optimieren.",
-                    "short": None,
+                    "short": "rl",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -128,7 +128,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Hybrid AI",
                     "description": "Ansätze, die datengetriebenes maschinelles Lernen mit symbolischem, regelbasiertem oder wissensbasiertem Schließen kombinieren.",
-                    "short": None,
+                    "short": "hybrid-ai",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -145,7 +145,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Erklärbare und Vertrauenswürdige KI",
                     "description": "Methoden, die KI-Entscheidungen für Nutzer und Regulierungsbehörden transparent, nachvollziehbar und verlässlich machen.",
-                    "short": None,
+                    "short": "xai",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -163,7 +163,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Edge AI",
                     "description": "Ausführung von KI-Modellen direkt auf lokalen Geräten statt in der Cloud für schnellere und datenschutzfreundlichere Verarbeitung.",
-                    "short": None,
+                    "short": "edge-ai",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -174,7 +174,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Federated Learning",
                     "description": "Training von Machine-Learning-Modellen über dezentrale Geräte oder Server hinweg, ohne Rohdaten auszutauschen.",
-                    "short": None,
+                    "short": "federated-learning",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -185,7 +185,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Privacy-Preserving AI",
                     "description": "KI-Techniken wie differenzielle Privatsphäre oder Verschlüsselung, die sensible Daten beim Training und bei der Anwendung schützen.",
-                    "short": None,
+                    "short": "privacy-ai",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -202,7 +202,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "MLOps",
                     "description": "Praktiken und Werkzeuge zum Bereitstellen, Überwachen und Warten von Machine-Learning-Modellen im produktiven Betrieb.",
-                    "short": None,
+                    "short": "mlops",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -213,7 +213,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Datenräume",
                     "description": "Vertrauenswürdige Infrastrukturen für den Austausch und die gemeinsame Nutzung von Daten zwischen Organisationen unter einheitlichen Governance-Regeln.",
-                    "short": None,
+                    "short": "data-spaces",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -231,7 +231,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Data Governance",
                     "description": "Rahmenwerke und Richtlinien zur Steuerung von Datenverfügbarkeit, -qualität, -sicherheit und -konformität in einer Organisation.",
-                    "short": None,
+                    "short": "data-governance",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Data Governance", "Datensteuerung", "data stewardship"], "excluded": []},
@@ -239,7 +239,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Datenqualität",
                     "description": "Methoden und Prozesse, die sicherstellen, dass Daten korrekt, vollständig, konsistent und nutzbar sind.",
-                    "short": None,
+                    "short": "data-quality",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -250,7 +250,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "KI-basierte Qualitätskontrolle",
                     "description": "Einsatz von KI zur automatischen Erkennung von Fehlern und zur Sicherstellung der Produkt- oder Prozessqualität.",
-                    "short": None,
+                    "short": "ai-qc",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -266,7 +266,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Prozessoptimierung",
                     "description": "Datengetriebene und KI-gestützte Ansätze zur Verbesserung von Effizienz und Leistung von Geschäfts- oder Produktionsprozessen.",
-                    "short": None,
+                    "short": "process-opt",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -282,7 +282,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Prognosemodelle und Automatisierung komplexer Aufgaben",
                     "description": "Vorhersagemodelle und Automatisierungssysteme, die komplexe Entscheidungs- und Planungsaufgaben übernehmen.",
-                    "short": None,
+                    "short": "forecasting-automation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -309,7 +309,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Halbleiter",
                     "description": "Materialien und Bauelemente mit steuerbarer elektrischer Leitfähigkeit, die die Grundlage moderner Elektronik bilden.",
-                    "short": None,
+                    "short": "semiconductors",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Halbleiter", "Semiconductor", "Semiconductors"], "excluded": []},
@@ -317,7 +317,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Mikroelektronik",
                     "description": "Entwicklung und Herstellung miniaturisierter elektronischer Schaltungen und Bauteile.",
-                    "short": None,
+                    "short": "microelectronics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Mikroelektronik", "Microelectronics"], "excluded": []},
@@ -325,7 +325,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Nanoelektronik",
                     "description": "Elektronische Bauteile und Bauelemente im Nanometerbereich zur weiteren Steigerung von Leistung und Miniaturisierung.",
-                    "short": None,
+                    "short": "nanoelectronics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Nanoelektronik", "Nanoelectronics"], "excluded": []},
@@ -333,7 +333,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Integrierte Schaltungen und Chipdesign",
                     "description": "Entwurf und Layout von Schaltungen, die mehrere elektronische Funktionen auf einem einzigen Chip vereinen.",
-                    "short": None,
+                    "short": "ic-design",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -350,7 +350,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Sensorik",
                     "description": "Bauelemente, die physikalische, chemische oder biologische Signale erfassen und in elektronische Daten umwandeln.",
-                    "short": None,
+                    "short": "sensors-chips",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -361,7 +361,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "MEMS",
                     "description": "Mikroelektromechanische Systeme, die winzige mechanische und elektronische Bauteile auf einem Chip vereinen.",
-                    "short": None,
+                    "short": "mems",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -372,7 +372,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Leistungselektronik",
                     "description": "Elektronische Schaltungen und Bauteile zur effizienten Umwandlung und Steuerung elektrischer Energie.",
-                    "short": None,
+                    "short": "power-electronics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Leistungselektronik", "Power Electronics"], "excluded": []},
@@ -380,7 +380,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Analog-/Mixed-Signal-Chips",
                     "description": "Chips, die analoge und digitale Schaltkreise kombinieren, um kontinuierliche Signale aus der realen Welt zu verarbeiten.",
-                    "short": None,
+                    "short": "mixed-signal",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -391,7 +391,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "RF-/HF-Komponenten",
                     "description": "Bauteile zur Übertragung, zum Empfang und zur Verarbeitung von Hochfrequenzsignalen für die drahtlose Kommunikation.",
-                    "short": None,
+                    "short": "rf-components",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -408,7 +408,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Embedded Systems",
                     "description": "Spezialisierte Computersysteme, die in Geräte integriert sind, um bestimmte Steuerungs- oder Überwachungsfunktionen auszuführen.",
-                    "short": None,
+                    "short": "embedded-systems",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -419,7 +419,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Secure Connectivity",
                     "description": "Technologien, die eine sichere und zuverlässige Datenkommunikation zwischen vernetzten Geräten und Systemen gewährleisten.",
-                    "short": None,
+                    "short": "secure-connectivity",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -435,7 +435,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Advanced Packaging",
                     "description": "Verfahren zur Montage und Verbindung von Chips über die klassische Einzelchip-Verpackung hinaus, z. B. durch 3D-Stapelung.",
-                    "short": None,
+                    "short": "adv-packaging",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -452,7 +452,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "System-on-Chip",
                     "description": "Integration eines gesamten Computersystems, einschließlich Prozessor, Speicher und Schnittstellen, auf einem einzigen Chip.",
-                    "short": None,
+                    "short": "soc",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["System-on-Chip", "System on Chip"], "excluded": []},
@@ -460,7 +460,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "System-in-Packag",
                     "description": "Mehrere Chips oder Komponenten, die in einem einzigen Gehäuse zu einem vollständigen funktionsfähigen System integriert werden.",
-                    "short": None,
+                    "short": "sip",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["System-in-Package", "System in Package"], "excluded": []},
@@ -468,7 +468,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Photonische integrierte Schaltungen",
                     "description": "Chips, die Lichtsignale mithilfe integrierter optischer Komponenten anstelle von oder zusätzlich zur Elektronik verarbeiten.",
-                    "short": None,
+                    "short": "pic-chips",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -485,7 +485,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantenchips",
                     "description": "Chips, die Quantenbits und Schaltkreise zur Durchführung von Quantenberechnungen realisieren.",
-                    "short": None,
+                    "short": "quantum-chips",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -503,7 +503,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Pilotlinien und Halbleiter-Testinfrastruktur",
                     "description": "Anlagen zum Prototyping, Testen und Validieren von Halbleiterprozessen und -bauteilen vor der Massenproduktion.",
-                    "short": None,
+                    "short": "pilot-lines",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -529,7 +529,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Additive Fertigung / 3D-Druck",
                     "description": "Schichtweiser Aufbau von Objekten direkt aus digitalen Modellen, wodurch komplexe und individuelle Bauteile möglich werden.",
-                    "short": None,
+                    "short": "additive-mfg",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -540,7 +540,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Industrielle und Kollaborative Robotik",
                     "description": "Roboter, die Produktionsaufgaben entweder autonom oder in direkter Zusammenarbeit mit menschlichen Arbeitskräften ausführen.",
-                    "short": None,
+                    "short": "robotics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -557,7 +557,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Autonome Produktionssysteme",
                     "description": "Fertigungssysteme, die mit minimalem menschlichem Eingriff arbeiten und sich anpassen.",
-                    "short": None,
+                    "short": "autonomous-production",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -572,7 +572,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Automatisierung",
                     "description": "Einsatz von Steuerungssystemen und Technologie zur Durchführung von Aufgaben mit reduziertem menschlichem Eingriff.",
-                    "short": None,
+                    "short": "automation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -583,7 +583,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Cyber-Physische Produktionssysteme",
                     "description": "Produktionssysteme, die physische Maschinen eng mit Rechenleistung, Sensorik und Vernetzung verbinden.",
-                    "short": None,
+                    "short": "cpps",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -594,7 +594,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Industrie 4.0 und digitale Zwillinge",
                     "description": "Vernetzte, datengetriebene Fertigung in Kombination mit virtuellen Abbildern physischer Anlagen zur Simulation und Überwachung.",
-                    "short": None,
+                    "short": "industry-4-0",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -605,7 +605,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Manufacturing-X / Produktionsdatenräume",
                     "description": "Vertrauenswürdige Datenökosysteme, die einen sicheren Datenaustausch entlang industrieller Wertschöpfungsketten ermöglichen.",
-                    "short": None,
+                    "short": "manufacturing-x",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -616,7 +616,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Prozesssimulation",
                     "description": "Digitale Modellierung von Produktionsprozessen, um Ergebnisse vor der physischen Umsetzung zu testen, zu optimieren und vorherzusagen.",
-                    "short": None,
+                    "short": "process-sim",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Prozesssimulation", "process simulation"], "excluded": []},
@@ -624,7 +624,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Inline-Messtechnik",
                     "description": "Messsysteme, die direkt in Produktionslinien integriert sind, um die Qualität kontinuierlich zu überwachen.",
-                    "short": None,
+                    "short": "inline-metrology",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -635,7 +635,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Predictive Maintenanc",
                     "description": "Nutzung von Daten und Analytik, um Geräteausfälle vorherzusagen, bevor sie auftreten, und Wartung proaktiv zu planen.",
-                    "short": None,
+                    "short": "predictive-maintenance",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -646,7 +646,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Zerstörungsfreie Prüfung",
                     "description": "Prüfverfahren, die Materialien oder Bauteile bewerten, ohne sie zu beschädigen.",
-                    "short": None,
+                    "short": "ndt",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -662,7 +662,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Flexible Fertigung",
                     "description": "Produktionssysteme, die sich schnell an unterschiedliche Produkte oder wechselnde Stückzahlen anpassen können.",
-                    "short": None,
+                    "short": "flexible-mfg",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Flexible Fertigung", "flexible manufacturing"], "excluded": []},
@@ -670,7 +670,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Rekonfigurierbare Produktion",
                     "description": "Fertigungssysteme, die für eine schnelle Umstrukturierung auf neue Produkte oder Prozesse ausgelegt sind.",
-                    "short": None,
+                    "short": "reconfig-production",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -681,7 +681,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Pilotfabriken",
                     "description": "Produktionsanlagen im kleinen Maßstab zur Erprobung und Validierung neuer Fertigungstechnologien vor der Skalierung.",
-                    "short": None,
+                    "short": "pilot-factories",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -701,7 +701,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantencomputing",
                     "description": "Berechnung mittels Quantenbits, die Superposition und Verschränkung nutzen, um bestimmte Probleme schneller als klassische Computer zu lösen.",
-                    "short": None,
+                    "short": "quantum-computing",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -712,7 +712,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantensimulation",
                     "description": "Nutzung von Quantensystemen zur Modellierung und Untersuchung komplexer physikalischer, chemischer oder materialwissenschaftlicher Systeme.",
-                    "short": None,
+                    "short": "quantum-simulation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Quantensimulation", "quantum simulation"], "excluded": []},
@@ -720,7 +720,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantenkommunikation",
                     "description": "Übertragung von Informationen mittels Quantenzuständen, die grundlegend neue Sicherheits- und Vernetzungsmöglichkeiten bietet.",
-                    "short": None,
+                    "short": "quantum-comm",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Quantenkommunikation", "quantum communication"], "excluded": []},
@@ -728,7 +728,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantum Key Distribution",
                     "description": "Ein Verfahren der Quantenkommunikation zum sicheren Austausch kryptografischer Schlüssel mit Erkennung von Abhörversuchen.",
-                    "short": None,
+                    "short": "qkd",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -739,7 +739,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantensensorik",
                     "description": "Sensoren, die quantenmechanische Effekte nutzen, um extrem hohe Messgenauigkeit und Empfindlichkeit zu erreichen.",
-                    "short": None,
+                    "short": "quantum-sensing",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Quantensensorik", "quantum sensing", "Quantensensor"], "excluded": []},
@@ -747,7 +747,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantenmetrologie",
                     "description": "Präzisionsmesstechniken auf Basis von Quantenphänomenen, die klassische Messgrenzen übertreffen.",
-                    "short": None,
+                    "short": "quantum-metrology",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Quantenmetrologie", "quantum metrology"], "excluded": []},
@@ -755,7 +755,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Quantenchips und Quantenalgorithmen",
                     "description": "Hardware zur Umsetzung von Quantenprozessoren zusammen mit Algorithmen, die für den Einsatz auf Quantencomputern entwickelt wurden.",
-                    "short": None,
+                    "short": "quantum-algorithms",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -772,7 +772,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Photonik",
                     "description": "Wissenschaft und Technologie der Erzeugung, Steuerung und Erfassung von Licht für vielfältige Anwendungen.",
-                    "short": None,
+                    "short": "photonics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Photonik", "Photonics"], "excluded": []},
@@ -780,7 +780,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Laser",
                     "description": "Geräte, die kohärente, fokussierte Lichtstrahlen erzeugen, die in Fertigung, Medizin, Kommunikation und Messtechnik eingesetzt werden.",
-                    "short": None,
+                    "short": "laser",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Laser", "Lasertechnologie", "laser technology"], "excluded": []},
@@ -788,7 +788,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Optische Sensorik",
                     "description": "Sensoren, die Licht nutzen, um physikalische, chemische oder umweltbezogene Parameter zu erfassen und zu messen.",
-                    "short": None,
+                    "short": "optical-sensing",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -799,7 +799,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Spektroskopie",
                     "description": "Analytisches Verfahren zur Untersuchung der Wechselwirkung zwischen Licht und Materie zur Bestimmung der Materialzusammensetzung.",
-                    "short": None,
+                    "short": "spectroscopy",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Spektroskopie", "Spectroscopy"], "excluded": []},
@@ -807,7 +807,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Optische Messtechnik",
                     "description": "Präzise Messung von Abmessungen, Formen oder Oberflächen mittels optischer Verfahren.",
-                    "short": None,
+                    "short": "optical-metrology",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Optische Messtechnik", "optical metrology"], "excluded": []},
@@ -815,7 +815,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Lidar",
                     "description": "Fernerkundungstechnologie, die Laserpulse nutzt, um Entfernungen zu messen und präzise 3D-Karten der Umgebung zu erstellen.",
-                    "short": None,
+                    "short": "lidar",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Lidar", "LiDAR"], "excluded": []},
@@ -823,7 +823,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Photonische integrierte Schaltungen",
                     "description": "Chips, die Lichtsignale mithilfe integrierter optischer Komponenten anstelle von oder zusätzlich zur Elektronik verarbeiten.",
-                    "short": None,
+                    "short": "pic-quantum",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -840,7 +840,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Optische Kommunikation",
                     "description": "Übertragung von Daten mittels Licht, meist über Glasfasern, was Netzwerke mit hoher Bandbreite ermöglicht.",
-                    "short": None,
+                    "short": "optical-comm",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -856,7 +856,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Bildgebung und photonikbasierte Fertigung",
                     "description": "Einsatz lichtbasierter Bildgebungs- und Verarbeitungstechniken für Visualisierung, Inspektion und Fertigung.",
-                    "short": None,
+                    "short": "photonics-imaging",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -881,7 +881,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Ultraleichte Verbundwerkstoffe",
                     "description": "Verbundwerkstoffe, die auf minimales Gewicht bei gleichzeitig hoher Festigkeit und Steifigkeit ausgelegt sind.",
-                    "short": None,
+                    "short": "ultralight-composites",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -896,7 +896,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Advanced Composites",
                     "description": "Technisch entwickelte Materialien, die zwei oder mehr Bestandteile kombinieren, um überlegene mechanische oder funktionale Leistung zu erzielen.",
-                    "short": None,
+                    "short": "adv-composites",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -907,7 +907,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Hochleistungslegierungen",
                     "description": "Metalllegierungen, die für außergewöhnliche Festigkeit, Hitze- oder Korrosionsbeständigkeit in anspruchsvollen Umgebungen entwickelt wurden.",
-                    "short": None,
+                    "short": "high-perf-alloys",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -918,7 +918,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Selbstheilende Polymere",
                     "description": "Polymerwerkstoffe, die Schäden automatisch reparieren können, um die Lebensdauer zu verlängern.",
-                    "short": None,
+                    "short": "self-healing-polymers",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Selbstheilende Polymere", "self-healing polymer"], "excluded": []},
@@ -926,7 +926,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Biobasierte und Multifunktionale Biomaterialien",
                     "description": "Materialien, die aus biologischen Quellen gewonnen werden oder mehrere Funktionen für nachhaltige Anwendungen vereinen.",
-                    "short": None,
+                    "short": "biomaterials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -937,7 +937,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Funktionale Materialien",
                     "description": "Materialien, die für spezifische reaktionsfähige Eigenschaften wie elektrisches, magnetisches oder optisches Verhalten entwickelt wurden.",
-                    "short": None,
+                    "short": "functional-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Funktionale Materialien", "functional materials"], "excluded": []},
@@ -945,7 +945,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Nanomaterialien",
                     "description": "Materialien, die im Nanomaßstab strukturiert sind, um einzigartige mechanische, chemische oder elektronische Eigenschaften zu erzielen.",
-                    "short": None,
+                    "short": "nanomaterials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Nanomaterial", "Nanomaterialien", "nanomaterial"], "excluded": []},
@@ -953,7 +953,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Intelligente Materialien",
                     "description": "Materialien, die ihre Eigenschaften als Reaktion auf äußere Reize wie Temperatur, Belastung oder Licht anpassen.",
-                    "short": None,
+                    "short": "smart-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -964,7 +964,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Oberflächen",
                     "description": "Gestaltung von Materialoberflächen zur Erzielung gewünschter funktionaler oder ästhetischer Eigenschaften.",
-                    "short": None,
+                    "short": "surfaces",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -980,7 +980,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Beschichtungen",
                     "description": "Dünne Schichten, die auf Oberflächen aufgebracht werden, um Schutz, Funktionalität oder verbesserte Leistung zu bieten.",
-                    "short": None,
+                    "short": "coatings",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Beschichtung", "Beschichtungen", "Coating", "coatings"], "excluded": []},
@@ -988,7 +988,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Grenzflächen",
                     "description": "Untersuchung und Gestaltung von Grenzflächen zwischen unterschiedlichen Materialien, um deren Wechselwirkung und Leistung zu steuern.",
-                    "short": None,
+                    "short": "interfaces",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1004,7 +1004,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Batteriematerialien",
                     "description": "Materialien, die zur Verbesserung von Leistung, Kapazität und Lebensdauer von Energiespeicherbatterien entwickelt werden.",
-                    "short": None,
+                    "short": "battery-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1015,7 +1015,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wasserstoffmaterialien",
                     "description": "Materialien, die für die Erzeugung, Speicherung und den Transport von Wasserstoff entwickelt werden.",
-                    "short": None,
+                    "short": "hydrogen-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1031,7 +1031,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Materialien für Energieumwandlung",
                     "description": "Materialien, die für die effiziente Umwandlung von Energie zwischen verschiedenen Formen entwickelt werden, z. B. in Solarzellen oder Thermoelektrika.",
-                    "short": None,
+                    "short": "energy-conv-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1047,7 +1047,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Recyclingfähige Werkstoffe",
                     "description": "Materialien, die so gestaltet sind, dass sie am Ende ihres Produktlebens wiederverwendet oder recycelt werden können, um Abfall zu reduzieren.",
-                    "short": None,
+                    "short": "recyclable-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1058,7 +1058,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Safe-and-Sustainable-by-Design",
                     "description": "Ansatz zur Entwicklung von Materialien, die bereits ab der frühesten Designphase für Gesundheit und Umwelt sicher sind.",
-                    "short": None,
+                    "short": "ssbd",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1078,7 +1078,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Arzneimittelentwicklung",
                     "description": "Forschung und Prozesse zur Entdeckung, Prüfung und Markteinführung neuer Arzneimittel.",
-                    "short": None,
+                    "short": "drug-development",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1094,7 +1094,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Biologika",
                     "description": "Therapeutische Produkte, die aus lebenden Organismen gewonnen werden, wie Antikörper, Proteine oder Impfstoffe.",
-                    "short": None,
+                    "short": "biologics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Biologika", "Biologics", "biopharmaceutical"], "excluded": []},
@@ -1102,7 +1102,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Impfstoffe",
                     "description": "Biologische Präparate, die das Immunsystem zum Schutz vor bestimmten Krankheiten stimulieren.",
-                    "short": None,
+                    "short": "vaccines",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Impfstoff", "Impfstoffe", "Vaccine", "vaccines"], "excluded": []},
@@ -1110,7 +1110,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Diagnostika",
                     "description": "Werkzeuge und Tests zur Erkennung von Krankheiten oder gesundheitlichen Zuständen bei Patienten.",
-                    "short": None,
+                    "short": "diagnostics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1121,7 +1121,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Medizinprodukte",
                     "description": "Instrumente, Implantate oder Geräte, die zur medizinischen Diagnose, Überwachung oder Behandlung eingesetzt werden.",
-                    "short": None,
+                    "short": "medical-devices",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1132,7 +1132,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Klinische Studien",
                     "description": "Forschungsstudien, die Sicherheit und Wirksamkeit medizinischer Behandlungen an menschlichen Teilnehmern testen.",
-                    "short": None,
+                    "short": "clinical-trials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1143,7 +1143,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Biomarker",
                     "description": "Messbare biologische Indikatoren zur Beurteilung von Gesundheitszustand, Krankheitsverlauf oder Behandlungsansprechen.",
-                    "short": None,
+                    "short": "biomarkers",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Biomarker"], "excluded": []},
@@ -1151,7 +1151,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Genomik",
                     "description": "Untersuchung der gesamten Genausstattung eines Organismus sowie ihrer Funktion, Struktur und Wechselwirkungen.",
-                    "short": None,
+                    "short": "genomics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Genomik", "Genomics"], "excluded": []},
@@ -1159,7 +1159,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Proteomik",
                     "description": "Umfassende Untersuchung von Proteinen, ihrer Strukturen und Funktionen in Zellen und Organismen.",
-                    "short": None,
+                    "short": "proteomics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Proteomik", "Proteomics"], "excluded": []},
@@ -1167,7 +1167,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Omics-Technologien",
                     "description": "Eine Familie von Technologien (Genomik, Proteomik, Metabolomik usw.), die umfangreiche biologische Datensätze analysieren.",
-                    "short": None,
+                    "short": "omics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1185,7 +1185,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Bioinformatik",
                     "description": "Computergestützte Methoden und Werkzeuge zur Analyse und Interpretation biologischer Daten.",
-                    "short": None,
+                    "short": "bioinformatics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Bioinformatik", "Bioinformatics"], "excluded": []},
@@ -1193,7 +1193,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Personalisierte Medizin",
                     "description": "Anpassung medizinischer Behandlung an individuelle Patientenmerkmale wie Genetik oder Lebensstil.",
-                    "short": None,
+                    "short": "personalized-medicine",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1209,7 +1209,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Zell- und Gentherapien",
                     "description": "Behandlungen, die Zellen oder Gene verändern oder ersetzen, um Krankheiten zu behandeln oder zu heilen.",
-                    "short": None,
+                    "short": "cell-gene-therapy",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1220,7 +1220,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "CRISPR / Gene Editing",
                     "description": "Verfahren zur präzisen Veränderung von DNA-Sequenzen in lebenden Organismen.",
-                    "short": None,
+                    "short": "crispr",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1231,7 +1231,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Synthetische Biologie",
                     "description": "Konstruktion biologischer Systeme und Organismen mit neuen oder neu gestalteten Funktionen.",
-                    "short": None,
+                    "short": "synthetic-biology",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Synthetische Biologie", "Synthetic Biology"], "excluded": []},
@@ -1239,7 +1239,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Industrielle Biotechnologie",
                     "description": "Nutzung biologischer Systeme und Organismen zur Herstellung industrieller Produkte und Materialien.",
-                    "short": None,
+                    "short": "industrial-biotech",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1250,7 +1250,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Fermentation",
                     "description": "Biologischer Prozess, bei dem Mikroorganismen Rohstoffe in Produkte wie Lebensmittel, Chemikalien oder Kraftstoffe umwandeln.",
-                    "short": None,
+                    "short": "fermentation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Fermentation", "Fermentierung"], "excluded": []},
@@ -1258,7 +1258,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Bioprozessentwicklung",
                     "description": "Entwicklung und Optimierung von Prozessen zur Herstellung biologischer Produkte im großen Maßstab.",
-                    "short": None,
+                    "short": "bioprocess-dev",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1269,7 +1269,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Biobasierte Materialien",
                     "description": "Materialien, die aus erneuerbaren biologischen Ressourcen gewonnen werden, als Alternative zu fossilbasierten Produkten.",
-                    "short": None,
+                    "short": "bio-based-materials",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1280,7 +1280,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Digitale Gesundheit",
                     "description": "Digitale Technologien wie Apps, Sensoren und Plattformen zur Unterstützung von Gesundheitsversorgung und Wohlbefinden.",
-                    "short": None,
+                    "short": "digital-health",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1306,7 +1306,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Erneuerbare Energien",
                     "description": "Energie, die aus natürlich nachwachsenden Quellen wie Sonne, Wind, Wasser oder Biomasse gewonnen wird.",
-                    "short": None,
+                    "short": "renewable-energy",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1317,7 +1317,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Energieumwandlung",
                     "description": "Technologien, die Energie von einer Form in eine andere umwandeln, z. B. von Wärme in Elektrizität.",
-                    "short": None,
+                    "short": "energy-conversion",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Energieumwandlung", "Energy Conversion"], "excluded": []},
@@ -1325,7 +1325,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Batteriespeicher",
                     "description": "Systeme, die elektrische Energie in Batterien für die spätere Nutzung speichern.",
-                    "short": None,
+                    "short": "battery-storage",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1336,7 +1336,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Thermische Speicher",
                     "description": "Systeme, die Energie in Form von Wärme oder Kälte für die spätere Nutzung speichern.",
-                    "short": None,
+                    "short": "thermal-storage",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1347,7 +1347,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wasserstoff",
                     "description": "Herstellung, Speicherung und Nutzung von Wasserstoff als sauberer Energieträger und Kraftstoff.",
-                    "short": None,
+                    "short": "hydrogen",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1358,7 +1358,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Grüne Gase",
                     "description": "Erneuerbar erzeugte Gase wie grüner Wasserstoff oder Biomethan, die als emissionsarme Energiequellen genutzt werden.",
-                    "short": None,
+                    "short": "green-gases",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1369,7 +1369,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Power-to-X",
                     "description": "Umwandlung von erneuerbarem Strom in andere Energieträger wie Wasserstoff, Gas oder flüssige Kraftstoffe.",
-                    "short": None,
+                    "short": "power-to-x",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Power-to-X", "Power-to-Gas", "Power-to-Liquid", "PtX"], "excluded": []},
@@ -1377,7 +1377,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Smart Grids",
                     "description": "Intelligente Stromnetze, die digitale Kommunikation nutzen, um Angebot und Nachfrage effizient auszugleichen.",
-                    "short": None,
+                    "short": "smart-grids",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Smart Grid", "Smart Grids", "intelligentes Stromnetz"], "excluded": []},
@@ -1385,7 +1385,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Netztechnologien und Energieeffizienz",
                     "description": "Technologien zur Verbesserung von Effizienz und Zuverlässigkeit von Energieverteilnetzen.",
-                    "short": None,
+                    "short": "grid-efficiency",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1402,7 +1402,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wärmepumpen",
                     "description": "Geräte, die Wärme von einem kühleren in einen wärmeren Raum transportieren und für effizientes Heizen und Kühlen genutzt werden.",
-                    "short": None,
+                    "short": "heat-pumps",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Wärmepumpe", "Wärmepumpen", "Heat Pump", "heat pumps"], "excluded": []},
@@ -1410,7 +1410,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Industrielle Abwärme",
                     "description": "Rückgewinnung und Wiederverwendung von Wärme, die als Nebenprodukt industrieller Prozesse entsteht.",
-                    "short": None,
+                    "short": "industrial-waste-heat",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1426,7 +1426,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Klimaneutrale Prozesswärme",
                     "description": "Technologien zur Bereitstellung industrieller Prozesswärme ohne Netto-Treibhausgasemissionen.",
-                    "short": None,
+                    "short": "climate-neutral-heat",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1442,7 +1442,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "CO2-Management",
                     "description": "Strategien und Technologien zur Überwachung, Reduktion und Handhabung von Kohlendioxidemissionen.",
-                    "short": None,
+                    "short": "co2-management",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1453,7 +1453,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "CCU/CCS",
                     "description": "Technologien zur Abscheidung von Kohlendioxid und dessen Nutzung in Produkten oder dauerhafter Speicherung.",
-                    "short": None,
+                    "short": "ccus",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1470,7 +1470,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Kreislaufwirtschaft",
                     "description": "Wirtschaftsmodell, das darauf abzielt, Ressourcen durch Wiederverwendung, Reparatur und Recycling im Kreislauf zu halten, statt sie zu entsorgen.",
-                    "short": None,
+                    "short": "circular-economy",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Kreislaufwirtschaft", "Circular Economy"], "excluded": []},
@@ -1478,7 +1478,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Recycling",
                     "description": "Prozesse, die Abfallstoffe in neue Produkte umwandeln, um den Rohstoffverbrauch zu reduzieren.",
-                    "short": None,
+                    "short": "recycling",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Recycling", "Wiederverwertung"], "excluded": []},
@@ -1486,7 +1486,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Ressourceneffizienz",
                     "description": "Ansätze zur effizienteren Nutzung natürlicher Ressourcen bei gleichzeitiger Minimierung von Abfall und Umweltbelastung.",
-                    "short": None,
+                    "short": "resource-efficiency",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Ressourceneffizienz", "Resource Efficiency"], "excluded": []},
@@ -1494,7 +1494,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Umweltmonitoring",
                     "description": "Systematische Beobachtung und Messung von Umweltparametern wie Luft-, Wasser- und Bodenqualität.",
-                    "short": None,
+                    "short": "env-monitoring",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1505,7 +1505,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wasser-, Abfall- und Luftreinhaltung",
                     "description": "Technologien zur Wasseraufbereitung, Abfallbewirtschaftung und Luftreinhaltung zum Schutz der Umwelt.",
-                    "short": None,
+                    "short": "water-waste-air",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1532,7 +1532,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Emissionsfreie Antriebe",
                     "description": "Fahrzeugantriebe, die keine direkten Abgasemissionen verursachen, wie elektrische oder wasserstoffbasierte Antriebe.",
-                    "short": None,
+                    "short": "zero-emission-drivetrains",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1543,7 +1543,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Elektromobilität",
                     "description": "Mobilität, die durch elektrische Antriebe und Batterie- oder Brennstoffzellen-Energiespeicher angetrieben wird.",
-                    "short": None,
+                    "short": "e-mobility",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1554,7 +1554,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Brennstoffzellen",
                     "description": "Geräte, die chemische Energie, häufig aus Wasserstoff, direkt in Elektrizität umwandeln.",
-                    "short": None,
+                    "short": "fuel-cells",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1565,7 +1565,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wasserstoffmobilität",
                     "description": "Nutzung von Wasserstoff als Kraftstoff zum Antrieb von Fahrzeugen, meist über Brennstoffzellen.",
-                    "short": None,
+                    "short": "hydrogen-mobility",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1581,7 +1581,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Lade- und Betankungsinfrastruktur",
                     "description": "Netzwerke von Stationen zum Laden von Elektrofahrzeugen oder Betanken mit Wasserstoff und anderen alternativen Kraftstoffen.",
-                    "short": None,
+                    "short": "charging-infra",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1597,7 +1597,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Leichtbau",
                     "description": "Konstruktions- und Materialansätze zur Reduzierung des Fahrzeuggewichts bei gleichbleibender Festigkeit und Sicherheit.",
-                    "short": None,
+                    "short": "lightweight-construction",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1608,7 +1608,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Batterieintegration und Fahrzeugsoftware",
                     "description": "Integration von Batteriesystemen und Software, die Fahrzeugleistung, Sicherheit und Konnektivität steuern.",
-                    "short": None,
+                    "short": "battery-vehicle-sw",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1619,7 +1619,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Automatisierte Fahrzeuge",
                     "description": "Fahrzeuge, die mit Systemen ausgestattet sind, die Fahraufgaben mit reduziertem oder ohne menschlichen Eingriff ausführen können.",
-                    "short": None,
+                    "short": "automated-vehicles",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1636,7 +1636,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Vernetzte Verkehrssysteme",
                     "description": "Verkehrsinfrastruktur und Fahrzeuge, die miteinander kommunizieren, um Sicherheit und Effizienz zu verbessern.",
-                    "short": None,
+                    "short": "connected-transport",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1652,7 +1652,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "C-ITS",
                     "description": "Kooperative intelligente Verkehrssysteme, die den Informationsaustausch zwischen Fahrzeugen, Infrastruktur und Verkehrsteilnehmern ermöglichen.",
-                    "short": None,
+                    "short": "c-its",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1667,7 +1667,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "V2X-Kommunikation",
                     "description": "Vehicle-to-Everything-Kommunikation, die Fahrzeugen den Datenaustausch mit anderen Fahrzeugen, der Infrastruktur und Fußgängern ermöglicht.",
-                    "short": None,
+                    "short": "v2x",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["V2X", "V2X-Kommunikation", "Vehicle-to-Everything"], "excluded": []},
@@ -1675,7 +1675,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Mobility-as-a-Service",
                     "description": "Integrierte digitale Plattformen, die den Zugang zu mehreren Verkehrsmitteln über einen einzigen Dienst bieten.",
-                    "short": None,
+                    "short": "maas",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Mobility-as-a-Service", "MaaS"], "excluded": []},
@@ -1683,7 +1683,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Digitale Mobilitätsdienste",
                     "description": "Digitale Anwendungen und Plattformen, die Reiseplanung, Buchung und Bezahlung über verschiedene Verkehrsmittel hinweg unterstützen.",
-                    "short": None,
+                    "short": "digital-mobility",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1699,7 +1699,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Verkehrssteuerung",
                     "description": "Systeme und Strategien zur Überwachung und Steuerung des Verkehrsflusses, um Staus zu reduzieren und die Sicherheit zu verbessern.",
-                    "short": None,
+                    "short": "traffic-management",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1710,7 +1710,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Bahntechnologien und Logistiksystem",
                     "description": "Technologien für den Schienenverkehr und integrierte Systeme zur Steuerung von Güterströmen.",
-                    "short": None,
+                    "short": "rail-logistics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1736,7 +1736,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Satellitentechnologien",
                     "description": "Technologien zur Entwicklung, zum Bau und zum Betrieb von Satelliten für verschiedene Anwendungen.",
-                    "short": None,
+                    "short": "satellite-tech",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1747,7 +1747,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Erdbeobachtung / Copernicus",
                     "description": "Nutzung von Satelliten zur Beobachtung von Land, Ozeanen und Atmosphäre der Erde, einschließlich des EU-Programms Copernicus.",
-                    "short": None,
+                    "short": "earth-observation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Erdbeobachtung", "Earth Observation", "Copernicus"], "excluded": []},
@@ -1755,7 +1755,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wetter- und Klimamonitoring",
                     "description": "Satelliten- und sensorgestützte Beobachtung von Wettermustern und langfristigen Klimatrends.",
-                    "short": None,
+                    "short": "weather-climate-monitoring",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1766,7 +1766,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Navigation / GNSS",
                     "description": "Globale Satellitennavigationssysteme, die Positions-, Navigations- und Zeitinformationen bereitstellen.",
-                    "short": None,
+                    "short": "gnss",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1777,7 +1777,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Satellitenkommunikation",
                     "description": "Übertragung von Sprach-, Daten- und Rundfunksignalen über Satelliten.",
-                    "short": None,
+                    "short": "satellite-comm",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Satellitenkommunikation", "Satellite Communication"], "excluded": []},
@@ -1785,7 +1785,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Raumfahrtkomponenten",
                     "description": "Hardwarekomponenten, die für den Einsatz in Raumfahrzeugen und Satelliten entwickelt und gebaut werden.",
-                    "short": None,
+                    "short": "spacecraft-components",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1796,7 +1796,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Weltraumelektronik",
                     "description": "Elektronische Systeme, die für den Einsatz unter den Strahlungs- und Extrembedingungen des Weltraums ausgelegt sind.",
-                    "short": None,
+                    "short": "space-electronics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Weltraumelektronik", "Space Electronics"], "excluded": []},
@@ -1804,7 +1804,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "On-board-Systeme",
                     "description": "Systeme, die in Raumfahrzeuge oder Flugzeuge integriert sind, um Betrieb, Navigation und Nutzlastfunktionen zu steuern.",
-                    "short": None,
+                    "short": "onboard-systems",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1815,7 +1815,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Sensorik",
                     "description": "Geräte an Bord von Raumfahrzeugen oder Flugzeugen, die physikalische oder umweltbezogene Parameter erfassen und messen.",
-                    "short": None,
+                    "short": "sensors-space",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Sensorik", "Sensor Technology", "Sensortechnologie"], "excluded": []},
@@ -1823,7 +1823,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Satellitendatenanalyse",
                     "description": "Verarbeitung und Interpretation von Satellitendaten für wissenschaftliche, kommerzielle oder sicherheitsrelevante Zwecke.",
-                    "short": None,
+                    "short": "satellite-data",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1839,7 +1839,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Weltraumwissenschaft",
                     "description": "Wissenschaftliche Forschung zu Himmelskörpern, Weltraumphänomenen und der Nutzung des Weltraums.",
-                    "short": None,
+                    "short": "space-science",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Weltraumwissenschaft", "Space Science"], "excluded": []},
@@ -1847,7 +1847,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Sicherheits-/Resilienzbezogene Anwendungen",
                     "description": "Weltraumgestützte Anwendungen zur Sicherheitsüberwachung und Stärkung der Resilienz kritischer Infrastruktur.",
-                    "short": None,
+                    "short": "security-resilience",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1863,7 +1863,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Avionik",
                     "description": "Elektronische Systeme für Kommunikation, Navigation und Flugsteuerung in Luftfahrzeugen.",
-                    "short": None,
+                    "short": "avionics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Avionik", "Avionics"], "excluded": []},
@@ -1871,7 +1871,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Nachhaltige Luftfahrt",
                     "description": "Technologien und Praktiken zur Reduzierung der Umweltauswirkungen des Luftverkehrs.",
-                    "short": None,
+                    "short": "sustainable-aviation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Nachhaltige Luftfahrt", "Sustainable Aviation"], "excluded": []},
@@ -1879,7 +1879,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "SAF",
                     "description": "Alternative Flugkraftstoffe, die aus erneuerbaren Quellen oder Abfallstoffen hergestellt werden, um Luftfahrtemissionen zu senken.",
-                    "short": None,
+                    "short": "saf",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1890,7 +1890,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Wasserstoff in der Luftfahrt",
                     "description": "Nutzung von Wasserstoff als Antriebs- oder Energiequelle für Flugzeuge zur Emissionsreduzierung.",
-                    "short": None,
+                    "short": "hydrogen-aviation",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1906,7 +1906,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Aerodynamik",
                     "description": "Untersuchung der Wechselwirkung zwischen Luft und bewegten Objekten zur Verbesserung von Effizienz und Leistung von Flugzeugen und Fahrzeugen.",
-                    "short": None,
+                    "short": "aerodynamics",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Aerodynamik", "Aerodynamics"], "excluded": []},
@@ -1914,7 +1914,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Leichte Strukturen",
                     "description": "Strukturelle Designs und Materialien, die das Gewicht minimieren und dabei die Festigkeit für Luft- und Raumfahrtanwendungen erhalten.",
-                    "short": None,
+                    "short": "lightweight-structures",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {
@@ -1925,7 +1925,7 @@ TECHNOLOGIES_CONFIG = Configuration(
                 {
                     "label": "Flugverkehrsmanagement",
                     "description": "Systeme und Verfahren zur sicheren und effizienten Steuerung des Luftverkehrsflusses.",
-                    "short": None,
+                    "short": "air-traffic-mgmt",
                     "style": {"color": None, "accent": None},
                     "programmes": [],
                     "searchTerms": {"anyOf": ["Flugverkehrsmanagement", "Air Traffic Management"], "excluded": []},
