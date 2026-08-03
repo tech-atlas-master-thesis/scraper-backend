@@ -11,7 +11,19 @@ class Scraper(metaclass=ABCMeta):
     @dataclass
     class Keyword:
         name: str
-        search: List[str]
+        any_of: List[str]
+        exclude: List[str]
+
+        @classmethod
+        def keyword_from_config(cls, config: Dict[str, Any]):
+            name = config.get("label")
+
+            search = config.get("searchTerms", [])
+            any_of = search["anyOf"] if "anyOf" in search else None
+            excluded = search["excluded"] if "excluded" in search else []
+            if any_of is None:
+                raise KeyError(f"Configuration {config} is invalid")
+            return cls(name, any_of, excluded)
 
     @abstractmethod
     def get_keywords(self) -> List[Keyword]:
@@ -32,7 +44,7 @@ class Scraper(metaclass=ABCMeta):
         dfs = []
         keywords = self.get_keywords()
         for i, keyword in enumerate(keywords):
-            yield f"({i}/{len(keywords)}) Searching for keyword \"{keyword.name}\" with search terms [{', '.join(keyword.search)}]", EventType.INFO
+            yield f"({i}/{len(keywords)}) Searching for keyword \"{keyword.name}\" with search terms any of [{', '.join(keyword.any_of)}] and excluding [{', '.join(keyword.exclude)}]", EventType.INFO
             csv, warnings = await self.get_results_for_keyword(keyword)
             if warnings:
                 yield "\n".join(warnings), EventType.WARNING

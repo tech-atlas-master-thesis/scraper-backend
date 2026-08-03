@@ -49,7 +49,7 @@ class FWFScraper(StepConfig):
                 LocalisationString("Query Matching Strategy", "Query Matching Strategie"),
                 None,
                 StepUserConfig.StepUserConfigType.STRING,
-                "all",
+                "last",
                 enumValues=[
                     UserConfigEnumDto("last", "last", LocalisationString("TODO", "TODO")),
                     UserConfigEnumDto("all", "all", LocalisationString("TODO", "TODO")),

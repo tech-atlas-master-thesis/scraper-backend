@@ -87,49 +87,49 @@ class FFG(Scraper):
         )
 
     def get_keywords(self) -> List[super().Keyword]:
-        return [self.keyword_from_config(tech) for field in self.TECHNOLOGIES for tech in field.get("technologies")]
+        return [
+            super().Keyword.keyword_from_config(tech)
+            for field in self.TECHNOLOGIES
+            for tech in field.get("technologies")
+        ]
 
     def get_data_identifier(self) -> str:
         return "FFG"
 
-    def keyword_from_config(self, config: Dict[str, Any]) -> super().Keyword:
-        name = config.get("label")
-
-        search = config.get("search", [])
-        if name is None:
-            raise KeyError(f"Configuration {config} is invalid")
-        return super().Keyword(name, [f'"{name}"'] + [f'"{s}"' for s in search])
+    def get_query_string(self, keyword: super().Keyword) -> str:
+        any_of = " ".join(f'"{term}"' for term in keyword.any_of)
+        excluded = " ".join(f'-"{term}"' for term in keyword.exclude)
+        return f"{any_of} {excluded}"
 
     async def get_all_ids_for_keyword(self, keyword: super().Keyword) -> List[str]:
         page = 0
         ids = set()
-        for search in keyword.search:
-            while True:
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(
-                        self.SEARCH_REQUEST_URI.format(
-                            query=search,
-                            page=page,
-                            title="",
-                            dateFrom=self.get_search_datetime_format(self.SEARCH_DATE_FROM),
-                            dateUntil=self.get_search_datetime_format(self.SEARCH_DATE_UNTIL),
-                            program="",
-                            grant="",
-                            status="",
-                        ),
-                        ssl=False,
-                    ) as response:
-                        soup = BeautifulSoup(await response.text(), "html.parser")
-                        links = soup.find(id="searchresults").find_all("a", href=self.ID_HREF_REGEX)
-                        if not links:
-                            break
-                        page += self.PAGE_SIZE
-                        for link in links:
-                            try:
-                                extracted_id = self.ID_HREF_REGEX.search(str(link)).groups()[0]
-                                ids.add(extracted_id)
-                            except Exception as e:
-                                print(e)
+        while True:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                    self.SEARCH_REQUEST_URI.format(
+                        query=self.get_query_string(keyword),
+                        page=page,
+                        title="",
+                        dateFrom=self.get_search_datetime_format(self.SEARCH_DATE_FROM),
+                        dateUntil=self.get_search_datetime_format(self.SEARCH_DATE_UNTIL),
+                        program="",
+                        grant="",
+                        status="",
+                    ),
+                    ssl=False,
+                ) as response:
+                    soup = BeautifulSoup(await response.text(), "html.parser")
+                    links = soup.find(id="searchresults").find_all("a", href=self.ID_HREF_REGEX)
+                    if not links:
+                        break
+                    page += self.PAGE_SIZE
+                    for link in links:
+                        try:
+                            extracted_id = self.ID_HREF_REGEX.search(str(link)).groups()[0]
+                            ids.add(extracted_id)
+                        except Exception as e:
+                            print(e)
         return list(ids)
 
     def get_search_datetime_format(self, dt: datetime.datetime | str | None) -> str:

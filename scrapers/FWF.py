@@ -96,7 +96,7 @@ class FWF(Scraper):
                 "locales": ",".join(self.PROJECT_SEARCH_LOCALES),
                 "showRankingScoreDetails": "true",
                 "filter": self._get_search_filters(),
-                "q": keyword.search,
+                "q": self.get_query_string(keyword),
             },
             headers={**self.PROJECT_SEARCH_ENDPOINT_HEADERS, "Content-Type": "application/json"},
         ) as response:
@@ -104,6 +104,11 @@ class FWF(Scraper):
                 raise response.raise_for_status()
             hits = json.loads(await response.content.read())[self.PROJECT_SEARCH_ITEMS_FIELD]
             return StringIO(json.dumps(hits))
+
+    def get_query_string(self, keyword: super().Keyword) -> str:
+        any_of = " ".join(keyword.any_of)
+        excluded = " ".join(f"-{term}" for term in keyword.exclude)
+        return f"{any_of} {excluded}"
 
     def _add_missing_columns(self, df: pd.DataFrame) -> pd.DataFrame:
         for column in self.QUERY_REQUIRED_FIELDS:
@@ -196,19 +201,14 @@ class FWF(Scraper):
         )
 
     def get_keywords(self) -> List[super().Keyword]:
-        return [self.keyword_from_config(tech) for field in self.TECHNOLOGIES for tech in field.get("technologies")]
+        return [
+            super().Keyword.keyword_from_config(tech)
+            for field in self.TECHNOLOGIES
+            for tech in field.get("technologies")
+        ]
 
     def get_data_identifier(self) -> str:
         return "FWF"
-
-    def keyword_from_config(self, config: Dict[str, Any]) -> super().Keyword:
-        name = config.get("label")
-
-        search = config.get("search", [])
-        if name is None:
-            raise KeyError(f"Configuration {config} is invalid")
-        # TODO: readd quotes
-        return super().Keyword(name, [f"{name}"] + [f"{s}" for s in search])
 
     def get_search_datetime_format(self, dt: datetime.datetime | str | None) -> str:
         if dt is None:
