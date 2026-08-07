@@ -60,7 +60,7 @@ class FFPScraper(StepConfig):
                 LocalisationString("RegExp to find href with ID", "RegExp um href mit ID zu finden"),
                 None,
                 StepUserConfig.StepUserConfigType.STRING,
-                "/projekt/(\d+)",
+                "/projekt/([a-z0-9-]+)",
             ),
             StepUserConfig(
                 "FOUND_KEYWORD_COLUMN",
